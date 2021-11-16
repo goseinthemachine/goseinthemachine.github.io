@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Intro to JavaScript Day 4</title>
+<meta name="author" content="Cameron Gose"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Intro to JavaScript Day 4</h1><h2 class="author">Cameron Gose</h2><p class="date">Created: 2021-11-10 Wed 18:05</p>
+</section>
+
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> Take Home Review</h2>
+<p>
+-<a href="https://codepen.io/GeekwiseAcademy/pen/jOqRgPv?editors=0010"> Code Pen</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> Last Time</h2>
+<ul>
+<li>Formatting dates</li>
+<li>JavaScript Library Moment.JS</li>
+<li><a href="https://dockyard.com/blog/2020/02/14/you-probably-don-t-need-moment-js-anymore">Additional Reading</a></li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Date</span>(<span style="color: #99bb66;">'2019-02-19T06:00:00Z'</span>).toLocaleDateString(
+  <span style="color: #99bb66;">'en-gb'</span>,
+  {
+    year: <span style="color: #99bb66;">'numeric'</span>,
+    month: <span style="color: #99bb66;">'long'</span>,
+    day: <span style="color: #99bb66;">'numeric'</span>
+  }
+); <span style="color: #525252;">// </span><span style="color: #525252;">18 February 2019</span>
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> Control Flow</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> Controlling the Flow</h2>
+<ul>
+<li>If / Else</li>
+<li>Switch Statement</li>
+<li>Ternary Operators</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> IF / ELSE</h2>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">if</span> (condition) {
+   statement1
+} <span style="color: #51afef;">else</span> {
+   statement2
+}
+</pre>
+</div>
+
+</section>
+<section id="slide-5-1">
+<h3 id="5-1"><span class="section-number-3">5.1.</span> IF / ELSE</h3>
+<ul>
+<li>Condition
+<ul>
+<li>an expression that is truthy || falsy</li>
+
+</ul></li>
+<li>Expression
+<ul>
+<li>valid colde that resolves to a value</li>
+<li>Can be almost anything</li>
+
+</ul></li>
+<li>Statement
+<ul>
+<li>code path executed if condition is truthy</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-5-2">
+<h3 id="5-2"><span class="section-number-3">5.2.</span> IF / ELSE</h3>
+<ul>
+<li>Else If</li>
+<li>Comparison Operators
+<ul>
+<li>Difference between equal and strict equal</li>
+<li>Strict equal</li>
+<li>Strict not equal</li>
+<li>Greater Than</li>
+<li>Less Than</li>
+<li>Greater Than or equal to</li>
+<li>Less Than or equal to</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> Truthy and Falsy</h2>
+<ul>
+<li>Falsy
+<ul>
+<li>False</li>
+<li>0</li>
+<li>Empty string</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>NaN</li>
+
+</ul></li>
+<li>Truthy
+<ul>
+<li>Everything else</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-7">
+<h2 id="7"><span class="section-number-2">7.</span> Logical Operators</h2>
+<ul>
+<li>And</li>
+<li>Or</li>
+<li>Not</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-8">
+<h2 id="8"><span class="section-number-2">8.</span> Now What</h2>
+<ul>
+<li>Build a small game</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-9">
+<h2 id="9"><span class="section-number-2">9.</span> Switch Statement</h2>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">switch</span> (expression) {
+  <span style="color: #51afef;">case</span> value1:
+    <span style="color: #525252;">//</span><span style="color: #525252;">Statements executed when the</span>
+    <span style="color: #525252;">//</span><span style="color: #525252;">result of expression matches value1</span>
+    [<span style="color: #51afef;">break</span>;]
+  <span style="color: #51afef;">case</span> value2:
+    <span style="color: #525252;">//</span><span style="color: #525252;">Statements executed when the</span>
+    <span style="color: #525252;">//</span><span style="color: #525252;">result of expression matches value2</span>
+    [<span style="color: #51afef;">break</span>;]
+  ...
+  <span style="color: #51afef;">case</span> valueN:
+    <span style="color: #525252;">//</span><span style="color: #525252;">Statements executed when the</span>
+    <span style="color: #525252;">//</span><span style="color: #525252;">result of expression matches valueN</span>
+    [<span style="color: #51afef;">break</span>;]
+  [<span style="color: #51afef;">default</span>:
+    <span style="color: #525252;">//</span><span style="color: #525252;">Statements executed when none of</span>
+    <span style="color: #525252;">//</span><span style="color: #525252;">the values match the value of the expression</span>
+    [<span style="color: #51afef;">break</span>;]]
+}
+</pre>
+</div>
+
+</section>
+<section id="slide-9-1">
+<h3 id="9-1"><span class="section-number-3">9.1.</span> Switch Statement</h3>
+<ul>
+<li>Examples</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-10">
+<h2 id="10"><span class="section-number-2">10.</span> Now What</h2>
+<ul>
+<li>Reverse the roles</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-11">
+<h2 id="11"><span class="section-number-2">11.</span> Conditional (Ternary) Operator</h2>
+<div class="org-src-container">
+
+<pre class="src src-javascript">condition ? exprIfTrue : exprIfFalse
+</pre>
+</div>
+</section>
+<section id="slide-11-1">
+<h3 id="11-1"><span class="section-number-3">11.1.</span> Conditional (Ternary) Operator</h3>
+<ul>
+<li>Examples</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-12">
+<h2 id="12"><span class="section-number-2">12.</span> Daily Challenge</h2>
+<p>
+-<a href="https://codepen.io/rockygg/pen/MWyMyqe?editors=0010ii"> Another Code Pen Challenge</a>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-13">
+<h2 id="13"><span class="section-number-2">13.</span> Daily Challenge</h2>
+<ul>
+<li>Questions</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-14">
+<h2 id="14"><span class="section-number-2">14.</span> Edge Cases</h2>
+<ul>
+<li>Watch out for them</li>
+<li>Can break your applications</li>
+<li>Think about outside intended use cases</li>
+<li>0, null, undefined, empty strings</li>
+<li><a href="https://codepen.io/rockygg/pen/MWyMyqe?editors=0010">Additional Reading</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-15">
+<h2 id="15"><span class="section-number-2">15.</span> Debugging</h2>
+<ul>
+<li>If you can have someone else look at your code</li>
+<li>Console.log is your friend.</li>
+<li>Also you can use debugger</li>
+<li>Get comortable reading errors</li>
+<li>Get comfortable reading documentation</li>
+<li>Commit your code in smaller chunks of working functionality</li>
+<li><a href="https://blog.hartleybrody.com/debugging-code-beginner/">Additional Reading</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-16">
+<h2 id="16"><span class="section-number-2">16.</span> Take Home</h2>
+<ul>
+<li>At the bottom of your daily challenge</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>
