@@ -1,0 +1,8 @@
+table { 
+    border-collapse: collapse;
+    margin: 10px auto;
+} 
+
+td img {
+    max-height: 100px;
+}
