@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Intro to JavaScript Day 6</title>
+<meta name="author" content="Cameron Gose"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Intro to JavaScript Day 6</h1><h2 class="author">Cameron Gose</h2><p class="date">Created: 2021-11-17 Wed 19:45</p>
+</section>
+
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> Agenda for today</h2>
+<ul>
+<li>Take Home Review</li>
+<li>Promises and Callbacks</li>
+<li>Daily Challenge</li>
+<li>APIs</li>
+<li>JSON</li>
+<li>Take Home Challenge</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> Take Home Review</h2>
+<ul>
+<li>Questions?</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> Promises and Callbacks</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1.</span> Promise</h3>
+<ul>
+<li>Represents something that will be done sometime</li>
+<li>Kind of think of it as an IOU</li>
+<li>Allows for supporting asynchronous operations</li>
+
+</ul>
+</section>
+<section id="slide-3-2">
+<h3 id="3-2"><span class="section-number-3">3.2.</span> Promise</h3>
+<ul>
+<li>Has 3 states
+<ul>
+<li>Pending</li>
+<li>Resolved</li>
+<li>Rejected</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-3-3">
+<h3 id="3-3"><span class="section-number-3">3.3.</span> Asynchronous</h3>
+<ul>
+<li>Doesn&rsquo;t happen at the same time</li>
+<li>Think of a restaurant kitchen</li>
+<li>Everything we&rsquo;ve been doing so far has been synchrounous</li>
+
+</ul>
+
+</section>
+<section id="slide-3-3-1">
+<h4 id="3-3-1"><span class="section-number-4">3.3.1.</span> Asynchronous - Common Issues</h4>
+<ul>
+<li>Operations may not be completed yet</li>
+<li>Bites a lot of newer devs</li>
+
+</ul>
+</section>
+<section id="slide-3-4">
+<h3 id="3-4"><span class="section-number-3">3.4.</span> Promise</h3>
+<ul>
+<li>How to create a promise</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">asynchronousFunction</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Promise</span>((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+        resolve(<span style="color: #99bb66;">'foo'</span>);
+    }, <span style="color: #dd8844; font-weight: bold;">4000</span>)
+});
+
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">alertMessage</span> = <span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">message</span>) {
+    alert(message);
+    <span style="color: #525252;">// </span><span style="color: #525252;">return message</span>
+}
+
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">logError</span> = <span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">err</span>) {
+    console.log(err.message);
+}
+</pre>
+</div>
+
+</section>
+<section id="slide-3-4-1">
+<h4 id="3-4-1"><span class="section-number-4">3.4.1.</span> Chaining Methods</h4>
+<div class="org-src-container">
+
+<pre class="src src-javascript">asynchronousFunction.then(alertMessage,logError);
+asynchronousFunction.then(alertMessage).then(alertMessage).<span style="color: #51afef;">catch</span>(logError)
+<span style="color: #525252;">//</span><span style="color: #525252;">.finally() will run after everything</span>
+<span style="color: #525252;">//</span><span style="color: #525252;">.all()</span>
+use math.random <span style="color: #51afef;">for</span> random setTimeOut(resolve, Math.Random * <span style="color: #dd8844; font-weight: bold;">1000</span>, number)
+<span style="color: #51afef;">if</span>(odd <span style="color: #51afef;">throw</span> error)
+<span style="color: #51afef;">else</span> log message
+then <span style="color: #51afef;">finally</span> log done
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> Async / Await</h2>
+<ul>
+<li>Keywords</li>
+<li>Fairly new to JavaScript</li>
+<li>Works with promises</li>
+
+</ul>
+
+</section>
+<section id="slide-4-1">
+<h3 id="4-1"><span class="section-number-3">4.1.</span> Async / Await - Handling Errors</h3>
+<ul>
+<li>try, catch, finally</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> Daily Challenge</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+</section>
+<section id="slide-5-1">
+<h3 id="5-1"><span class="section-number-3">5.1.</span> Daily Challenge - 1</h3>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">job</span>() {
+    <span style="color: #51afef;">return</span> <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Promise</span>(<span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">resolve</span>, <span style="color: #dcaeea;">reject</span>) {
+        reject();
+    });
+}
+
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">promise</span> = job();
+
+promise
+
+.then(<span style="color: #51afef;">function</span>() {
+    console.log(<span style="color: #99bb66;">'Success 1'</span>);
+})
+
+.then(<span style="color: #51afef;">function</span>() {
+    console.log(<span style="color: #99bb66;">'Success 2'</span>);
+})
+
+.then(<span style="color: #51afef;">function</span>() {
+    console.log(<span style="color: #99bb66;">'Success 3'</span>);
+})
+
+.<span style="color: #51afef;">catch</span>(<span style="color: #51afef;">function</span>() {
+    console.log(<span style="color: #99bb66;">'Error 1'</span>);
+})
+
+.then(<span style="color: #51afef;">function</span>() {
+    console.log(<span style="color: #99bb66;">'Success 4'</span>);
+});
+</pre>
+</div>
+
+</section>
+<section id="slide-5-2">
+<h3 id="5-2"><span class="section-number-3">5.2.</span> Daily Challenge - 2</h3>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">job</span>(<span style="color: #dcaeea;">state</span>) {
+    <span style="color: #51afef;">return</span> <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Promise</span>(<span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">resolve</span>, <span style="color: #dcaeea;">reject</span>) {
+        <span style="color: #51afef;">if</span> (state) {
+            resolve(<span style="color: #99bb66;">'success'</span>);
+        } <span style="color: #51afef;">else</span> {
+            reject(<span style="color: #99bb66;">'error'</span>);
+        }
+    });
+}
+
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">promise</span> = job(<span style="color: #a9a1e1;">true</span>);
+
+promise
+.then(<span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">data</span>) {
+    console.log(data);
+    <span style="color: #51afef;">return</span> job(<span style="color: #a9a1e1;">false</span>);
+})
+.<span style="color: #51afef;">catch</span>(<span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">error</span>) {
+    console.log(error);
+    <span style="color: #51afef;">return</span> <span style="color: #99bb66;">'Error caught'</span>;
+})
+.then(<span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">data</span>) {
+    console.log(data);
+    <span style="color: #51afef;">return</span> job(<span style="color: #a9a1e1;">true</span>);
+})
+.<span style="color: #51afef;">catch</span>(<span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">error</span>) {
+    console.log(error);
+});
+</pre>
+</div>
+
+</section>
+<section id="slide-5-3">
+<h3 id="5-3"><span class="section-number-3">5.3.</span> Daily Challenge</h3>
+<ul>
+<li>Any questions?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> API</h2>
+<ul>
+<li>Application Programming Interface</li>
+
+</ul>
+</section>
+<section id="slide-6-1">
+<h3 id="6-1"><span class="section-number-3">6.1.</span> API</h3>
+<ul>
+<li>All kinds of APIs to have fun with
+<ul>
+<li><a href="https://pokeapi.co/">Pokemon API</a></li>
+<li><a href="http://www.omdbapi.com/">OMDb API</a></li>
+<li><a href="https://superheroapi.com/">Super Hero API</a></li>
+<li><a href="https://dog.ceo/dog-api/">Dog API</a></li>
+
+</ul></li>
+<li>A lot of the big players have APIs
+<ul>
+<li><a href="https://developer.spotify.com/documentation/web-api/">Spotify</a></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-6-2">
+<h3 id="6-2"><span class="section-number-3">6.2.</span> Interacting with APIs</h3>
+<ul>
+<li>Usually have a key</li>
+<li>Some need authentication</li>
+<li>Some fun ones are open but are rate limited</li>
+
+</ul>
+</section>
+<section id="slide-6-3">
+<h3 id="6-3"><span class="section-number-3">6.3.</span> Accessing the data</h3>
+<ul>
+<li>fetch</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>
