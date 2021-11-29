@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Intro to JavaScript Day 7</title>
+<meta name="author" content="Cameron Gose"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Intro to JavaScript Day 7</h1><h2 class="author">Cameron Gose</h2><p class="date">Created: 2021-11-29 Mon 00:03</p>
+</section>
+
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> Agenda for today</h2>
+<ul>
+<li>APIs</li>
+<li>JSON</li>
+<li>Last Class Take Home Challenge</li>
+<li>Arrays</li>
+<li>Loops</li>
+<li>Daily Challenge</li>
+<li>The DOM</li>
+<li>Event Listeners</li>
+<li>Take Home Challenge</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> API</h2>
+<ul>
+<li>Application Programming Interface</li>
+
+</ul>
+</section>
+<section id="slide-2-1">
+<h3 id="2-1"><span class="section-number-3">2.1.</span> API</h3>
+<ul>
+<li>All kinds of APIs to have fun with
+<ul>
+<li><a href="https://pokeapi.co/">Pokemon API</a></li>
+<li><a href="http://www.omdbapi.com/">OMDb API</a></li>
+<li><a href="https://superheroapi.com/">Super Hero API</a></li>
+<li><a href="https://dog.ceo/dog-api/">Dog API</a></li>
+
+</ul></li>
+<li>A lot of the big players have APIs
+<ul>
+<li><a href="https://developer.spotify.com/documentation/web-api/">Spotify</a></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-2-2">
+<h3 id="2-2"><span class="section-number-3">2.2.</span> Interacting with APIs</h3>
+<ul>
+<li>Usually have a key</li>
+<li>Some need authentication</li>
+<li>Some fun ones are open but are rate limited</li>
+
+</ul>
+</section>
+<section id="slide-2-3">
+<h3 id="2-3"><span class="section-number-3">2.3.</span> Fetch</h3>
+<ul>
+<li>Returns a Response
+<ul>
+<li>Represents entirety of request</li>
+
+</ul></li>
+<li>Response object has methods for handling data
+<ul>
+<li>json</li>
+<li>blob</li>
+
+</ul></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Using Fetch</a></li>
+
+</ul>
+</section>
+<section id="slide-2-4">
+<h3 id="2-4"><span class="section-number-3">2.4.</span> Accessing API data</h3>
+<ul>
+<li><a href="https://www.postman.com/">Postman</a></li>
+<li>An Example using Fetch</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> JSON</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1.</span> JSON - What is it?</h3>
+<ul>
+<li>JavaScript Object Notation</li>
+<li>Syntax for serializing objects, collections and primitives</li>
+<li>Based on JavaScript
+<ul>
+<li>There are differences though</li>
+
+</ul></li>
+<li>JavaScript JSON methods
+<ul>
+<li>JSON.parse(string)</li>
+<li>JSON.stringify(object)</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-3-2">
+<h3 id="3-2"><span class="section-number-3">3.2.</span> JSON - Syntax</h3>
+<ul>
+<li>Property names must be double-quoted</li>
+<li>Trailing commas are forbidden</li>
+<li>JSON text is valid JavaScript</li>
+
+</ul>
+
+</section>
+<section id="slide-3-3">
+<h3 id="3-3"><span class="section-number-3">3.3.</span> JSON - Difference</h3>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">//</span><span style="color: #525252;">JavaScript</span>
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">payload</span> = {
+  results: [
+    {id: <span style="color: #dd8844; font-weight: bold;">1</span>, price: <span style="color: #dd8844; font-weight: bold;">11.20</span>, description: <span style="color: #99bb66;">'Crew Neck T-Shirt'</span>, alts: [<span style="color: #99bb66;">'S'</span>,<span style="color: #99bb66;">'M'</span>,<span style="color: #99bb66;">'L'</span>,<span style="color: #99bb66;">'XL'</span>], images: []},
+    {id: <span style="color: #dd8844; font-weight: bold;">2</span>, price: <span style="color: #dd8844; font-weight: bold;">11.20</span>, description: <span style="color: #99bb66;">'V Neck T-Shirt'</span>, alts: [<span style="color: #99bb66;">'S'</span>,<span style="color: #99bb66;">'M'</span>,<span style="color: #99bb66;">'L'</span>,<span style="color: #99bb66;">'XL'</span>], images: []},
+    {id: <span style="color: #dd8844; font-weight: bold;">3</span>, price: <span style="color: #dd8844; font-weight: bold;">11.20</span>, description: <span style="color: #99bb66;">'Polo T-Shirt'</span>, alts: [<span style="color: #99bb66;">'S'</span>,<span style="color: #99bb66;">'M'</span>,<span style="color: #99bb66;">'L'</span>,<span style="color: #99bb66;">'XL'</span>], images: []},
+  ],
+  page: <span style="color: #dd8844; font-weight: bold;">0</span>,
+  pageSize: <span style="color: #dd8844; font-weight: bold;">10</span>,
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-javascript">{ <span style="color: #525252;">//</span><span style="color: #525252;">JSON</span>
+    <span style="color: #99bb66;">"results"</span>: [
+        {<span style="color: #99bb66;">"id"</span>: <span style="color: #dd8844; font-weight: bold;">1</span>, <span style="color: #99bb66;">"price"</span>: <span style="color: #dd8844; font-weight: bold;">11.20</span>, <span style="color: #99bb66;">"description"</span>: <span style="color: #99bb66;">"Crew Neck T-Shirt"</span>, <span style="color: #99bb66;">"alts"</span>: [<span style="color: #99bb66;">"S"</span>,<span style="color: #99bb66;">"M"</span>,<span style="color: #99bb66;">"L"</span>,<span style="color: #99bb66;">"XL"</span>], <span style="color: #99bb66;">"images"</span>: []},
+        {<span style="color: #99bb66;">"id"</span>: <span style="color: #dd8844; font-weight: bold;">2</span>, <span style="color: #99bb66;">"price"</span>: <span style="color: #dd8844; font-weight: bold;">11.20</span>, <span style="color: #99bb66;">"description"</span>: <span style="color: #99bb66;">"V Neck T-Shirt"</span>, <span style="color: #99bb66;">"alts"</span>: [<span style="color: #99bb66;">"S"</span>,<span style="color: #99bb66;">"M"</span>,<span style="color: #99bb66;">"L"</span>,<span style="color: #99bb66;">"XL"</span>], <span style="color: #99bb66;">"images"</span>: []},
+        {<span style="color: #99bb66;">"id"</span>: <span style="color: #dd8844; font-weight: bold;">3</span>, <span style="color: #99bb66;">"price"</span>: <span style="color: #dd8844; font-weight: bold;">11.20</span>, <span style="color: #99bb66;">"description"</span>: <span style="color: #99bb66;">"Polo T-Shirt"</span>, <span style="color: #99bb66;">"alts"</span>: [<span style="color: #99bb66;">"S"</span>,<span style="color: #99bb66;">"M"</span>,<span style="color: #99bb66;">"L"</span>,<span style="color: #99bb66;">"XL"</span>], <span style="color: #99bb66;">"images"</span>: []}
+    ],
+    <span style="color: #99bb66;">"page"</span>: <span style="color: #dd8844; font-weight: bold;">0</span>,
+    <span style="color: #99bb66;">"pageSize"</span>: <span style="color: #dd8844; font-weight: bold;">10</span>
+}
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> Take Home Assignment - 1</h2>
+<ul>
+<li>From previous week</li>
+<li>Create a new pen in codepen</li>
+<li>Make a request to this <a href="https://alexwohlbruck.github.io/cat-facts/docs/">Cat Facts API</a></li>
+<li>Get a random cat fact</li>
+<li>Alert a random cat fact</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> Questions</h2>
+<ul>
+<li>Questions?</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> Arrays</h2>
+<ul>
+<li>Data type for specifically storing collection of values</li>
+<li>Written as a list of vallues separated by commas</li>
+<li>Each item is called an element</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">// </span><span style="color: #525252;">Array of numbers</span>
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">arrOfValues</span> = [<span style="color: #dd8844; font-weight: bold;">1</span>,<span style="color: #dd8844; font-weight: bold;">2</span>,<span style="color: #dd8844; font-weight: bold;">3</span>,<span style="color: #dd8844; font-weight: bold;">4</span>,<span style="color: #dd8844; font-weight: bold;">5</span>];
+<span style="color: #525252;">// </span><span style="color: #525252;">Mixed array of numbers and string</span>
+arrOfValues = [<span style="color: #99bb66;">"1"</span>,<span style="color: #dd8844; font-weight: bold;">2</span>,<span style="color: #99bb66;">"3"</span>,<span style="color: #dd8844; font-weight: bold;">4</span>,<span style="color: #99bb66;">"5"</span>,<span style="color: #dd8844; font-weight: bold;">6</span>];
+<span style="color: #525252;">// </span><span style="color: #525252;">Mixed array of numbers and Objects</span>
+arrOfValues = [<span style="color: #dd8844; font-weight: bold;">1</span>, <span style="color: #dd8844; font-weight: bold;">2</span>, <span style="color: #dd8844; font-weight: bold;">3</span>, { num: <span style="color: #dd8844; font-weight: bold;">4</span> }, { num: <span style="color: #dd8844; font-weight: bold;">5</span> }, { num: <span style="color: #dd8844; font-weight: bold;">6</span> }];
+</pre>
+</div>
+
+</section>
+<section id="slide-6-1">
+<h3 id="6-1"><span class="section-number-3">6.1.</span> Arrays - Accessing Values</h3>
+<ul>
+<li>Use the arrayVariable[index]</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">arrOfValues</span> = [<span style="color: #dd8844; font-weight: bold;">1</span>, <span style="color: #dd8844; font-weight: bold;">2</span>, <span style="color: #dd8844; font-weight: bold;">3</span>, { num: <span style="color: #dd8844; font-weight: bold;">4</span> }, { num: <span style="color: #dd8844; font-weight: bold;">5</span> }, { num: <span style="color: #dd8844; font-weight: bold;">6</span> }];
+arrOfValues[<span style="color: #dd8844; font-weight: bold;">1</span>] <span style="color: #525252;">// </span><span style="color: #525252;">Returns the number 2</span>
+arrOfValues[<span style="color: #dd8844; font-weight: bold;">0</span>] <span style="color: #525252;">// </span><span style="color: #525252;">Returns the number 1</span>
+arrOfValues[<span style="color: #dd8844; font-weight: bold;">3</span>] <span style="color: #525252;">// </span><span style="color: #525252;">Returns the object { num: 4 }</span>
+</pre>
+</div>
+</section>
+<section id="slide-6-2">
+<h3 id="6-2"><span class="section-number-3">6.2.</span> Arrays - Methods</h3>
+<ul>
+<li>push</li>
+<li>pop</li>
+<li>shift</li>
+<li>unshift</li>
+<li>concat</li>
+<li>indexOf</li>
+<li>slice</li>
+<li>splice</li>
+
+</ul>
+
+</section>
+<section id="slide-6-3">
+<h3 id="6-3"><span class="section-number-3">6.3.</span> Arrays - Methods</h3>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">months</span> = [];
+months.push(<span style="color: #99bb66;">"Jan"</span>); <span style="color: #525252;">//</span><span style="color: #525252;">Appends to end of array</span>
+months.push(<span style="color: #99bb66;">"March"</span>);
+months.pop(); <span style="color: #525252;">//</span><span style="color: #525252;">Removes last element in array and returns it</span>
+months.push(<span style="color: #99bb66;">"February"</span>);
+months.push(<span style="color: #99bb66;">"March"</span>)
+months.push(<span style="color: #99bb66;">"May"</span>)
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">indexOfMarch</span> = months.indexOf(<span style="color: #99bb66;">'March'</span>);
+months.splice(indexOfMarch + <span style="color: #dd8844; font-weight: bold;">1</span>, <span style="color: #dd8844; font-weight: bold;">0</span>, <span style="color: #99bb66;">'April'</span>) <span style="color: #525252;">//</span><span style="color: #525252;">The 0 is how many elements to delete. Will return deleted elements</span>
+months.slice(<span style="color: #dd8844; font-weight: bold;">2</span>) <span style="color: #525252;">// </span><span style="color: #525252;">Will return months after index 2</span>
+months.slice(<span style="color: #dd8844; font-weight: bold;">2</span>,<span style="color: #dd8844; font-weight: bold;">3</span>) <span style="color: #525252;">// </span><span style="color: #525252;">Will return months starting after 2 and ending at index 3</span>
+months.shift() <span style="color: #525252;">// </span><span style="color: #525252;">Removes first element in array and returns the value</span>
+months.unshift(<span style="color: #99bb66;">"January"</span>) <span style="color: #525252;">// </span><span style="color: #525252;">Add element to start of array and returns length</span>
+months.length()
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-7">
+<h2 id="7"><span class="section-number-2">7.</span> Loops</h2>
+<ul>
+<li>For</li>
+<li>While</li>
+
+</ul>
+
+</section>
+<section id="slide-7-1">
+<h3 id="7-1"><span class="section-number-3">7.1.</span> Loops</h3>
+<ul>
+<li>Control Flow</li>
+<li>Good for repeating things</li>
+
+</ul>
+
+</section>
+<section id="slide-7-2">
+<h3 id="7-2"><span class="section-number-3">7.2.</span> For</h3>
+<ul>
+<li>There are different ways</li>
+<li>Known as definitive loops</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">// </span><span style="color: #525252;">For specific ranges</span>
+<span style="color: #51afef;">for</span>(<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">i</span> = <span style="color: #dd8844; font-weight: bold;">0</span>; i &lt; <span style="color: #dd8844; font-weight: bold;">20</span>; i++){
+ console.log(i);
+}
+
+<span style="color: #525252;">//</span><span style="color: #525252;">For objects. Iterates through the object keys</span>
+<span style="color: #525252;">// </span><span style="color: #525252;">More on objects later</span>
+<span style="color: #51afef;">for</span>(<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">key</span> <span style="color: #51afef;">in</span> obj) {
+    console.log(key)
+    console.log(obj[key])
+}
+
+<span style="color: #525252;">//</span><span style="color: #525252;">For arrays</span>
+<span style="color: #51afef;">for</span>(<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">item</span> of arr) {
+    console.log(item)
+}
+<span style="color: #525252;">// </span><span style="color: #525252;">Not really a for loop but iterates through an array like for of</span>
+months.map(month =&gt; <span style="color: #99bb66;">`${month} 2021`</span>) <span style="color: #525252;">// </span><span style="color: #525252;">Returns array of altered values if any</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-7-3">
+<h3 id="7-3"><span class="section-number-3">7.3.</span> While</h3>
+<ul>
+<li>Known as indefinite loops</li>
+<li>Need to meet a certain condition to end loop</li>
+<li>Easy to cause infinite loops</li>
+<li>There are 2 different while loops</li>
+
+</ul>
+
+</section>
+<section id="slide-7-4">
+<h3 id="7-4"><span class="section-number-3">7.4.</span> While</h3>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">while</span>(<span style="color: #a9a1e1;">true</span>) {
+<span style="color: #525252;">//</span><span style="color: #525252;">will produce an infinite loop</span>
+}
+
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">currentNumber</span> = <span style="color: #dd8844; font-weight: bold;">0</span>;
+<span style="color: #51afef;">while</span>(currentNumber &lt; <span style="color: #dd8844; font-weight: bold;">100</span>) { <span style="color: #525252;">// </span><span style="color: #525252;">Will continue until currentNumber is 100 or greater</span>
+  console.log(currentNumber);
+  currentNumber++; <span style="color: #525252;">//</span><span style="color: #525252;">If you forget this it will be an infinite loop</span>
+}
+
+
+<span style="color: #525252;">// </span><span style="color: #525252;">Do something before starting the loop. Will repeat what is in do block</span>
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">response</span> = <span style="color: #a9a1e1;">null</span>;
+<span style="color: #51afef;">do</span> {
+  response = prompt(<span style="color: #99bb66;">"Please enter your name"</span>)
+} <span style="color: #51afef;">while</span>(!response);
+
+</pre>
+</div>
+
+</section>
+<section id="slide-7-5">
+<h3 id="7-5"><span class="section-number-3">7.5.</span> Loops</h3>
+<ul>
+<li>Special keywords
+<ul>
+<li>break</li>
+<li>continue</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-8">
+<h2 id="8"><span class="section-number-2">8.</span> Daily Challenge</h2>
+<ul>
+<li>FizzBuzz Challenge
+<ul>
+<li>Create a new codepen</li>
+<li>Write a function called fizzbuzz that accepts no parameters</li>
+<li>The function is to print out all numbers from 1 to 100 with 3 exceptions
+<ul>
+<li>Every number divisible by 3 and 5 console.log &ldquo;FizzBuzz&rdquo;</li>
+<li>Every number divisible by 3 and not 5 console.log &ldquo;Fizz&rdquo;</li>
+<li>Every number divisible by 5 and not 3 console.log &ldquo;Buzz&rdquo;</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-8-1">
+<h3 id="8-1"><span class="section-number-3">8.1.</span> Daily Challenge</h3>
+<ul>
+<li>Any questions</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-9">
+<h2 id="9"><span class="section-number-2">9.</span> The DOM</h2>
+<ul>
+<li>Document Object Model
+<ul>
+<li>Object of website layout
+<ul>
+<li>Structure</li>
+<li>Style</li>
+<li>Content</li>
+
+</ul></li>
+<li>API to interact with it</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-9-1">
+<h3 id="9-1"><span class="section-number-3">9.1.</span> DOM - Properties</h3>
+<ul>
+<li>Can access element properties
+<ul>
+<li>.innerHtml</li>
+<li>.&lt;attribute&gt;</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-9-2">
+<h3 id="9-2"><span class="section-number-3">9.2.</span> DOM - Methods</h3>
+<ul>
+<li>.getElementById()</li>
+<li>.createElement()</li>
+<li>.appendChild()</li>
+
+</ul>
+
+</section>
+<section id="slide-9-3">
+<h3 id="9-3"><span class="section-number-3">9.3.</span> DOM - Example</h3>
+<ul>
+<li>Using existing element</li>
+<li>Creating elements</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-10">
+<h2 id="10"><span class="section-number-2">10.</span> Event Listeners</h2>
+<ul>
+<li>Listens for events</li>
+<li>Can add and remove them from events</li>
+<li><a href="https://www.w3schools.com/js/js_htmldom_eventlistener.asp">Using Event Listeners</a></li>
+<li><a href="https://www.w3schools.com/jsref/dom_obj_event.asp">List of different events available</a></li>
+
+</ul>
+
+</section>
+<section id="slide-10-1">
+<h3 id="10-1"><span class="section-number-3">10.1.</span> Event Listeners</h3>
+<div class="org-src-container">
+
+<pre class="src src-html">    &lt;<span style="color: #c678dd;">input</span> <span style="color: #dcaeea;">type</span>=<span style="color: #99bb66;">"text"</span> <span style="color: #dcaeea;">onchange</span>=<span style="color: #99bb66;">"getMovieSearch(this.value)"</span> <span style="color: #dcaeea;">id</span>=<span style="color: #99bb66;">"movie-search"</span> <span style="color: #dcaeea;">placeholder</span>=<span style="color: #99bb66;">"Movie Title"</span> /&gt;
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-javascript">    btn.addEventListener(<span style="color: #99bb66;">"click"</span>, clearResults)
+    btn.addEventListener(<span style="color: #99bb66;">"mouseenter"</span>, showWarning)
+    btn.addEventListener(<span style="color: #99bb66;">"mouseleave"</span>, removeWarning)
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-11">
+<h2 id="11"><span class="section-number-2">11.</span> Take Home Challenge - 2</h2>
+<ul>
+<li>Building from Take Home Challenge - 1</li>
+<li>Use javascript to create and append the following to your HTML:
+<ul>
+<li>Button element (with text)</li>
+
+</ul></li>
+<li>Now add the following functionality:
+<ul>
+<li>If you haven&rsquo;t already create a function that will make the API request</li>
+<li>Add an event listener to your button</li>
+<li>When your button is clicked, it should make the API request and append the results to the DOM</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>
