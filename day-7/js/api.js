@@ -25,6 +25,16 @@ function getApiKey() {
     throw new Error("Update API_KEY Value");
 }
 
+function getMovieSearch(value) {
+    console.log(value);
+    const element = document.getElementById("movie-search");
+
+    //attributes
+    console.log(element.placeholder)
+    console.log(element.id);
+    console.log(element.value);
+}
+
 function searchMoviesByTitle(searchTerm) {
     const url = new URL(API_URL);
     //Set Query/Search Parameters
@@ -113,9 +123,73 @@ function updateMovieTable(searchResults) {
     </tfoot>
     </table>
     `;
-
     element.innerHTML = innerHTML;
+    const table = document.createElement("table");
+    table.id = "created-table";
+    const tableHeader = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    const headers = ['Title', 'Year', 'imdbID', 'Type', 'Poster']
+    for (const header of headers) {
+        console.log(header);
+        const textNode = document.createTextNode(header);
+        headerRow.appendChild(document.createElement("th").appendChild(textNode))
+    }
+    tableHeader.appendChild(headerRow)
+
+    const body = document.createElement("tbody");
+    for (const movie of searchResults.Search) {
+        const row = document.createElement("tr");
+        for (const property of headers) {
+            console.log(movie[property])
+            const textNode = document.createTextNode(movie[property]);
+            const tableData = document.createElement("td");
+            tableData.appendChild(textNode)
+            row.appendChild(tableData);
+        }
+        body.appendChild(row);
+    }
+    const footer = document.createElement("tfoot");
+
+    table.appendChild(tableHeader);
+    table.appendChild(body);
+    table.appendChild(footer);
+    element.appendChild(table);
+
+
 
 }
 
-// searchMoviesByTitle("Guardians");
+function clearResults() {
+    const element = document.getElementById("movie-results");
+    element.innerHTML = null;
+}
+
+const btn = document.createElement("button");
+const clearEventsBtn = document.createElement("button");
+btn.appendChild(document.createTextNode("Clear Result"))
+clearEventsBtn.appendChild(document.createTextNode("Clear Button Events"))
+document.body.appendChild(btn);
+document.body.appendChild(clearEventsBtn);
+
+btn.addEventListener("click", clearResults)
+btn.addEventListener("mouseenter", function mouseEntering(event) {
+    console.log(event);
+    console.log(event.target);
+    event.target.classList.add("warning");
+    console.log("mouse entered clear results button")
+})
+btn.addEventListener("mouseleave", function mouseLeaving(event) {
+    console.log("mouse exited clear results button")
+    event.target.classList.remove("warning");
+})
+btn.addEventListener("mousemove", function mouseMoving(event) { console.log("mouse moving within button") })
+clearEventsBtn.addEventListener("click", (event) => {
+    console.log("Removing event listeners from Clear Result")
+    btn.removeEventListener("click", clearResults); //Needs a declared or named function
+    // btn.removeEventListener("mouseenter", mouseEntering); //Needs a declared or named function
+    // btn.removeEventListener("mouseleave", mouseLeaving); //Needs a declared or named function
+    // btn.removeEventListener("mousemove", mouseMoving); //Needs a declared or named function
+})
+
+
+searchMoviesByTitle("Guardians");

@@ -6,3 +6,8 @@ table {
 td img {
     max-height: 100px;
 }
+
+.warning {
+    background-color: rgb(248, 31, 11);
+    color: white;
+}

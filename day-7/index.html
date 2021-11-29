@@ -20,6 +20,11 @@
     <img id="movie-image" />
     <p id="movie-synopsis"> Movie Details</p>
 
+    <div>
+        <input type="text" onchange="getMovieSearch(this.value)" id="movie-search" placeholder="Movie Title" />
+        <button type="button">Search</button>
+    </div>
+
     <div id="movie-results"></div>
     <script src="./js/api.js"></script>
 </body>
