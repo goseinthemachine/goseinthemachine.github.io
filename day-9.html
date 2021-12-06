@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Intro to JavaScript Day 9</title>
+<meta name="author" content="Cameron Gose"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Intro to JavaScript Day 9</h1><h2 class="author">Cameron Gose</h2><p class="date">Created: 2021-12-05 Sun 21:39</p>
+</section>
+
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> Agenda</h2>
+<ul>
+<li>Take Home Review</li>
+<li>Forms</li>
+<li>Daily Challenge</li>
+<li>HTTP Requests</li>
+<li>Take Home Challenge</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> Take Home Review</h2>
+<ul>
+<li>Overview</li>
+
+</ul>
+</section>
+<section id="slide-2-1">
+<h3 id="2-1"><span class="section-number-3">2.1.</span> Take Home Review</h3>
+<ul>
+<li>Questions</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> Forms</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1.</span> Forms - Attributes</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+</section>
+<section id="slide-3-1-1">
+<h4 id="3-1-1"><span class="section-number-4">3.1.1.</span> Forms - Attributes - name</h4>
+<ul>
+<li>Give a name to the form</li>
+
+</ul>
+</section>
+<section id="slide-3-1-2">
+<h4 id="3-1-2"><span class="section-number-4">3.1.2.</span> Forms - Attributes - action</h4>
+<ul>
+<li>URL form targets when form is submitted</li>
+<li>Older way of submitting form</li>
+<li>Simple and still works</li>
+
+</ul>
+</section>
+<section id="slide-3-1-3">
+<h4 id="3-1-3"><span class="section-number-4">3.1.3.</span> Forms - Attributes - method</h4>
+<ul>
+<li>Supports two request methods
+<ul>
+<li>GET</li>
+<li>POST</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-3-2">
+<h3 id="3-2"><span class="section-number-3">3.2.</span> Forms - Elements</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+</section>
+<section id="slide-3-2-1">
+<h4 id="3-2-1"><span class="section-number-4">3.2.1.</span> Forms - Elements - Input</h4>
+<ul>
+<li>Most used element</li>
+<li>Almost every form will use this</li>
+
+</ul>
+<ol class="org-ol">
+<li><a id="3-2-1-1"></a>Forms - Input - Text<br />
+<ul>
+<li>Allows free typed text input</li>
+
+</ul>
+</li>
+<li><a id="3-2-1-2"></a>Forms - Input - Radio<br />
+<ul>
+<li>Allows for one selection out of many options</li>
+<li>People inappropriately use checkboxes for this</li>
+
+</ul>
+</li>
+<li><a id="3-2-1-3"></a>Forms - Input - Checkbox<br />
+<ul>
+<li>Allows for 0-n selctions out of many options</li>
+<li>Do not use this for Radio functionality</li>
+
+</ul>
+</li>
+<li><a id="3-2-1-4"></a>Forms - Input - Submit<br />
+<ul>
+<li>Submits the form</li>
+<li>Submits form data to value in action using the value in method attribute</li>
+
+</ul>
+</li>
+<li><a id="3-2-1-5"></a>Forms - Input - Others<br />
+<ul>
+<li>email</li>
+<li>password</li>
+<li>tel</li>
+<li>file</li>
+<li><a href="https://www.w3schools.com/html/html_form_input_types.asp">and more</a></li>
+
+</ul>
+</li>
+</ol>
+</section>
+<section id="slide-3-2-2">
+<h4 id="3-2-2"><span class="section-number-4">3.2.2.</span> Forms - Elements - Label</h4>
+<ul>
+<li>Defines a label for form elements</li>
+<li>Important for screen-readers</li>
+<li>Helps users click on control</li>
+<li>for attribute = id of matching element</li>
+
+</ul>
+</section>
+<section id="slide-3-2-3">
+<h4 id="3-2-3"><span class="section-number-4">3.2.3.</span> Forms - Elements - Button</h4>
+<ul>
+<li>Makes a button</li>
+<li>Could for handling events</li>
+<li>Can use type attribute
+<ul>
+<li>Submit</li>
+<li>Button</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-3-2-4">
+<h4 id="3-2-4"><span class="section-number-4">3.2.4.</span> Forms - Elements - Select/Option</h4>
+<ul>
+<li>Adds a drop down selection box</li>
+<li>Each item in dropdown is defined by an option</li>
+<li>Can add multiple attribute to allow multi-select</li>
+
+</ul>
+</section>
+<section id="slide-3-2-5">
+<h4 id="3-2-5"><span class="section-number-4">3.2.5.</span> Forms - Elements - TextArea</h4>
+<ul>
+<li>Multi line text field</li>
+<li>Can use rows and cols attributes to set size
+<ul>
+<li>or you can just use CSS</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-3-3">
+<h3 id="3-3"><span class="section-number-3">3.3.</span> Forms - JavaScript</h3>
+<ul>
+<li>Sometimes need to prevent form default behavior</li>
+<li>event.preventDefault()
+<ul>
+<li>Can be used to stop events
+<ul>
+<li>Not all events are preventable</li>
+
+</ul></li>
+<li>Used on forms often</li>
+<li>Now you have to handle it in JavaScript</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-3-4">
+<h3 id="3-4"><span class="section-number-3">3.4.</span> Forms - Examples</h3>
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> Daily Challenge</h2>
+<ul>
+<li>Create a new codepen</li>
+<li>Create a contact form with a submit button</li>
+<li>Using what you learned about DOM manipulation, create a submit function that will do the following:
+<ul>
+<li>Grab the values entered by the user</li>
+<li>Hide the form</li>
+<li>Display the information submitted by the user</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-4-1">
+<h3 id="4-1"><span class="section-number-3">4.1.</span> Daily Challenge - Review</h3>
+<ul>
+<li>My implementation</li>
+
+</ul>
+</section>
+<section id="slide-4-2">
+<h3 id="4-2"><span class="section-number-3">4.2.</span> Daily Challenge - Review</h3>
+<ul>
+<li>Any Questions?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> HTTP Requests</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+</section>
+<section id="slide-5-1">
+<h3 id="5-1"><span class="section-number-3">5.1.</span> HTTP Requests</h3>
+<ul>
+<li>HTTP Protocols determine wheter data is coming from client or server</li>
+<li>Each one signifies a specific use case
+<ul>
+<li>Some not enforced just considered standard practice</li>
+
+</ul></li>
+<li>Ways of passing data to server from client
+<ul>
+<li>Query Params</li>
+<li>Route Ids</li>
+<li>Form data</li>
+<li>Headers</li>
+<li>Body</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-5-2">
+<h3 id="5-2"><span class="section-number-3">5.2.</span> HTTP Responses</h3>
+<ul>
+<li>Each HTTP Request has a Response from the server</li>
+<li>Each response has a status code
+<ul>
+<li>1xx Information</li>
+<li>2xx Successful</li>
+<li>3xx Redirection</li>
+<li>4xx Client error</li>
+<li>5xx Server error</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">Status Codes</a></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-5-3">
+<h3 id="5-3"><span class="section-number-3">5.3.</span> HTTP Protocols - GET</h3>
+<ul>
+<li>Used for retrieving data from server
+<ul>
+<li>Get a list of items
+<ul>
+<li>Also used to filter list of items</li>
+
+</ul></li>
+<li>Get single item details</li>
+
+</ul></li>
+<li>Can pass data using query params</li>
+<li>Servers don&rsquo;t usually accept a body for GET Requests</li>
+
+</ul>
+</section>
+<section id="slide-5-4">
+<h3 id="5-4"><span class="section-number-3">5.4.</span> HTTP Protocols - PUT</h3>
+<ul>
+<li>Used to update entire item on server</li>
+<li>Replacing a file, image, or data</li>
+
+</ul>
+</section>
+<section id="slide-5-5">
+<h3 id="5-5"><span class="section-number-3">5.5.</span> HTTP Protocols - PATCH</h3>
+<ul>
+<li>Used to signify partial update of data on server
+<ul>
+<li>Will update fields passed to server that match expected object</li>
+<li>Can be all</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-5-6">
+<h3 id="5-6"><span class="section-number-3">5.6.</span> HTTP Protocols - POST</h3>
+<ul>
+<li>Used for Creating new items on server</li>
+<li>Was previously used for everything
+<ul>
+<li>Remember: Forms methods GET and POST</li>
+
+</ul></li>
+<li>Will run into older code with only GET and POST</li>
+
+</ul>
+</section>
+<section id="slide-5-7">
+<h3 id="5-7"><span class="section-number-3">5.7.</span> HTTP Protocols - DELETE</h3>
+<ul>
+<li>As the protocols suggests it deletes items from server</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> Take Home Challenge</h2>
+<ul>
+<li>Start working on your final project:
+<ul>
+<li>Your final project will be to build a magic 8 ball app</li>
+<li>Create a new repository named: magic8ball</li>
+<li>Clone your repository</li>
+<li>Add your index file, stylesheet, script file and the provided 8ball images</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-6-1">
+<h3 id="6-1"><span class="section-number-3">6.1.</span> Take Home Challenge - Objectives</h3>
+<ul>
+<li>Create input field for users to ask a question</li>
+<li>Create a label for your input field telling your user to &ldquo;Ask me anything!&rdquo;</li>
+<li>Create an &ldquo;ask&rdquo; button (this will run the function that you will insert the images into using javascript)</li>
+<li>Create a div with an id of &ldquo;answers&rdquo; that you will insert the images into using js</li>
+<li>Creat an &ldquo;ask&rdquo; function that when clicked, will choose as random 8ball image and insert it into your &ldquo;answers&rdquo; div</li>
+<li>Replace the input field with the user&rsquo;s question when displaying the answer</li>
+<li>Style your page any way you like</li>
+<li>Activate Github Pages for your project</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

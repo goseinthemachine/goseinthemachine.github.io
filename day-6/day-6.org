@@ -1,0 +1,158 @@
+#+TITLE: Intro to JavaScript Day 6
+#+OPTIONS: toc:nil
+#+AUTHOR: Cameron Gose
+#+REVEAL_THEME: solarized
+
+* Agenda for today
+- Take Home Review
+- Promises and Callbacks
+- Daily Challenge
+- APIs
+- JSON
+- Take Home Challenge
+
+* Take Home Review
+- Questions?
+
+* Promises and Callbacks
+
+** Promise
+- Represents something that will be done sometime
+- Kind of think of it as an IOU
+- Allows for supporting asynchronous operations
+** Promise
+- Has 3 states
+    - Pending
+    - Resolved
+    - Rejected
+** Asynchronous
+- Doesn't happen at the same time
+- Think of a restaurant kitchen
+- Everything we've been doing so far has been synchrounous
+
+*** Asynchronous - Common Issues
+- Operations may not be completed yet
+- Bites a lot of newer devs
+** Promise
+ - How to create a promise
+#+BEGIN_SRC javascript
+const asynchronousFunction = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('foo');
+    }, 4000)
+});
+
+const alertMessage = function(message) {
+    alert(message);
+    // return message
+}
+
+const logError = function(err) {
+    console.log(err.message);
+}
+#+END_SRC
+
+*** Chaining Methods
+#+BEGIN_SRC javascript
+asynchronousFunction.then(alertMessage,logError);
+asynchronousFunction.then(alertMessage).then(alertMessage).catch(logError)
+//.finally() will run after everything
+//.all()
+use math.random for random setTimeOut(resolve, Math.Random * 1000, number)
+if(odd throw error)
+else log message
+then finally log done
+#+END_SRC
+
+* Async / Await
+- Keywords
+- Fairly new to JavaScript
+- Works with promises
+
+** Async / Await - Handling Errors
+- try, catch, finally
+
+* Daily Challenge
+** Daily Challenge - 1
+#+BEGIN_SRC javascript
+function job() {
+    return new Promise(function(resolve, reject) {
+        reject();
+    });
+}
+
+let promise = job();
+
+promise
+
+.then(function() {
+    console.log('Success 1');
+})
+
+.then(function() {
+    console.log('Success 2');
+})
+
+.then(function() {
+    console.log('Success 3');
+})
+
+.catch(function() {
+    console.log('Error 1');
+})
+
+.then(function() {
+    console.log('Success 4');
+});
+#+END_SRC
+
+** Daily Challenge - 2
+#+BEGIN_SRC javascript
+function job(state) {
+    return new Promise(function(resolve, reject) {
+        if (state) {
+            resolve('success');
+        } else {
+            reject('error');
+        }
+    });
+}
+
+let promise = job(true);
+
+promise
+.then(function(data) {
+    console.log(data);
+    return job(false);
+})
+.catch(function(error) {
+    console.log(error);
+    return 'Error caught';
+})
+.then(function(data) {
+    console.log(data);
+    return job(true);
+})
+.catch(function(error) {
+    console.log(error);
+});
+#+END_SRC
+
+** Daily Challenge
+- Any questions?
+* API
+- Application Programming Interface
+** API
+- All kinds of APIs to have fun with
+  - [[https://pokeapi.co/][Pokemon API]]
+  - [[http://www.omdbapi.com/][OMDb API]]
+  - [[https://superheroapi.com/][Super Hero API]]
+  - [[https://dog.ceo/dog-api/][Dog API]]
+- A lot of the big players have APIs
+  - [[https://developer.spotify.com/documentation/web-api/][Spotify]]
+** Interacting with APIs
+- Usually have a key
+- Some need authentication
+- Some fun ones are open but are rate limited
+** Accessing the data
+- fetch

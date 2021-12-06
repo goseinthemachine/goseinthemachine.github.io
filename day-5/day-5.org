@@ -1,0 +1,118 @@
+#+TITLE: Intro to JavaScript Day 5
+#+AUTHOR: Cameron Gose
+#+OPTIONS: toc:nil
+#+REVEAL_THEME: solarized
+
+* For Today
+- Take Home Review
+- Functions
+- Daily Challenge
+- Method vs Function
+- Scopes
+- Take Home Challenge
+
+* Take Home Review
+- Questions
+- [[https://codepen.io/rockygg/pen/MWyMyqe?editors=0010][Link to Take Home]]
+
+* Functions
+- What are they
+
+** Functions
+- How do you make one?
+#+BEGIN_SRC javascript
+// To declare a function
+function functionName(param1, param2, param3, ... paramN){
+    console.log(`${param1} ${param2} ${param3}`)
+}
+#+END_SRC
+
+** Functions - Parameters
+- What can be a parameter
+    - anything that resolves to a value
+#+BEGIN_SRC javascript
+function alertHello(name) {
+    alert(`Hello ${name}`)
+}
+
+alertHello(prompt("What is your name"))
+#+END_SRC
+** Functions - Parameters
+- Default values
+- Pass by value - primitives only
+  - string, number, bigint, boolean, undefined, symbol, null
+- Pass by reference - non-primitive values
+  - Any object or array
+
+** Functions
+- Why use them?
+#+BEGIN_SRC javascript
+// This is reuseable
+function alertErrorMessage(message) {
+ alert(`Error occured: ${message}`)
+}
+
+alertErrorMessage("Input was incorrect")
+#+END_SRC
+
+** Functions
+- Define using expressions
+#+BEGIN_SRC javascript
+//Anonymous Function Expression
+const capitalize = function(word) {
+    // What is return? Why is it not required?
+    // Why be consistent?
+    // Explain dynamic typing
+    return `${word[0].toUppercase()}${word.slice(1)}`
+}
+// Why would anyone do this?
+const capitalize = function cap(word) {
+    return `${word[0].toUppercase()}${word.slice(1)}`
+}
+// Arrow function
+const pluralize = (array, word) => {
+    if(array.length > 1) return word;
+    return `${word}s`;
+}
+#+END_SRC
+** Functions
+- Whats the difference
+- Hoisting
+  - Function declaration supports this
+  - Function expressions do not
+- Arrow Methods
+  - Shouldn't use for methods
+  - [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions][Differences and Limitations]]
+
+* Daily Challenge
+- Create a new codepen (Create an account if you haven't yet)
+- Write a function that accepts a number as an argument
+- Alert the user whether the given number is even or odd
+- Call your function
+
+* Method vs Function
+- What's the difference?
+  - [[https://www.codecademy.com/articles/fwd-js-methods-functions][Additional reading]]
+
+* Scope
+- Global vs Local
+#+BEGIN_SRC javascript
+let firstName = "Cameron"
+let lastName = "Gose"
+
+function notifyUserName(){
+    const fullName = `${firstName} ${lastName}`
+    alert(fullName)
+}
+
+notifyUserName();
+
+#+END_SRC
+
+* Take Home Challenge
+ - Create new code pen
+ - Prompt user for a password
+ - Validate the password using the following rules
+   - Must be 6-20 characters long
+   - Must start with a letter
+- Alert the user if their password has been accepted or why their password was rejected

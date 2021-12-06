@@ -1,0 +1,263 @@
+#+TITLE: Intro to JavaScript Day 7
+#+OPTIONS: toc:nil
+#+AUTHOR: Cameron Gose
+#+REVEAL_THEME: solarized
+
+* Agenda for today
+- APIs
+- JSON
+- Last Class Take Home Challenge
+- Arrays
+- Loops
+- Daily Challenge
+- The DOM
+- Event Listeners
+- Take Home Challenge
+
+* API
+- Application Programming Interface
+** API
+- All kinds of APIs to have fun with
+  - [[https://pokeapi.co/][Pokemon API]]
+  - [[http://www.omdbapi.com/][OMDb API]]
+  - [[https://superheroapi.com/][Super Hero API]]
+  - [[https://dog.ceo/dog-api/][Dog API]]
+- A lot of the big players have APIs
+  - [[https://developer.spotify.com/documentation/web-api/][Spotify]]
+** Interacting with APIs
+- Usually have a key
+- Some need authentication
+- Some fun ones are open but are rate limited
+** Fetch
+- Returns a Response
+    - Represents entirety of request
+- Response object has methods for handling data
+    - json
+    - blob
+- [[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch][Using Fetch]]
+** Accessing API data
+- [[https://www.postman.com/][Postman]]
+- An Example using Fetch
+
+
+* JSON
+** JSON - What is it?
+- JavaScript Object Notation
+- Syntax for serializing objects, collections and primitives
+- Based on JavaScript
+    - There are differences though
+- JavaScript JSON methods
+    - JSON.parse(string)
+    - JSON.stringify(object)
+
+** JSON - Syntax
+- Property names must be double-quoted
+- Trailing commas are forbidden
+- JSON text is valid JavaScript
+
+** JSON - Difference
+#+BEGIN_SRC javascript
+//JavaScript
+let payload = {
+  results: [
+    {id: 1, price: 11.20, description: 'Crew Neck T-Shirt', alts: ['S','M','L','XL'], images: []},
+    {id: 2, price: 11.20, description: 'V Neck T-Shirt', alts: ['S','M','L','XL'], images: []},
+    {id: 3, price: 11.20, description: 'Polo T-Shirt', alts: ['S','M','L','XL'], images: []},
+  ],
+  page: 0,
+  pageSize: 10,
+}
+#+END_SRC
+
+#+BEGIN_SRC javascript
+{ //JSON
+    "results": [
+        {"id": 1, "price": 11.20, "description": "Crew Neck T-Shirt", "alts": ["S","M","L","XL"], "images": []},
+        {"id": 2, "price": 11.20, "description": "V Neck T-Shirt", "alts": ["S","M","L","XL"], "images": []},
+        {"id": 3, "price": 11.20, "description": "Polo T-Shirt", "alts": ["S","M","L","XL"], "images": []}
+    ],
+    "page": 0,
+    "pageSize": 10
+}
+#+END_SRC
+
+* Take Home Assignment - 1
+- From previous week
+- Create a new pen in codepen
+- Make a request to this [[https://alexwohlbruck.github.io/cat-facts/docs/][Cat Facts API]]
+- Get a random cat fact
+- Alert a random cat fact
+
+* Questions
+- Questions?
+
+* Arrays
+- Data type for specifically storing collection of values
+- Written as a list of vallues separated by commas
+- Each item is called an element
+#+BEGIN_SRC javascript
+// Array of numbers
+let arrOfValues = [1,2,3,4,5];
+// Mixed array of numbers and string
+arrOfValues = ["1",2,"3",4,"5",6];
+// Mixed array of numbers and Objects
+arrOfValues = [1, 2, 3, { num: 4 }, { num: 5 }, { num: 6 }];
+#+END_SRC
+
+** Arrays - Accessing Values
+- Use the arrayVariable[index]
+#+BEGIN_SRC javascript
+let arrOfValues = [1, 2, 3, { num: 4 }, { num: 5 }, { num: 6 }];
+arrOfValues[1] // Returns the number 2
+arrOfValues[0] // Returns the number 1
+arrOfValues[3] // Returns the object { num: 4 }
+#+END_SRC
+** Arrays - Methods
+- push
+- pop
+- shift
+- unshift
+- concat
+- indexOf
+- slice
+- splice
+
+** Arrays - Methods
+#+BEGIN_SRC javascript
+const months = [];
+months.push("Jan"); //Appends to end of array
+months.push("March");
+months.pop(); //Removes last element in array and returns it
+months.push("February");
+months.push("March")
+months.push("May")
+const indexOfMarch = months.indexOf('March');
+months.splice(indexOfMarch + 1, 0, 'April') //The 0 is how many elements to delete. Will return deleted elements
+months.slice(2) // Will return months after index 2
+months.slice(2,3) // Will return months starting after 2 and ending at index 3
+months.shift() // Removes first element in array and returns the value
+months.unshift("January") // Add element to start of array and returns length
+months.length()
+#+END_SRC
+
+* Loops
+- For
+- While
+
+** Loops
+- Control Flow
+- Good for repeating things
+
+** For
+- There are different ways
+- Known as definitive loops
+#+BEGIN_SRC javascript
+// For specific ranges
+for(let i = 0; i < 20; i++){
+ console.log(i);
+}
+
+//For objects. Iterates through the object keys
+// More on objects later
+for(const key in obj) {
+    console.log(key)
+    console.log(obj[key])
+}
+
+//For arrays
+for(const item of arr) {
+    console.log(item)
+}
+// Not really a for loop but iterates through an array like for of
+months.map(month => `${month} 2021`) // Returns array of altered values if any
+#+END_SRC
+
+** While
+- Known as indefinite loops
+- Need to meet a certain condition to end loop
+- Easy to cause infinite loops
+- There are 2 different while loops
+
+** While
+#+BEGIN_SRC javascript
+while(true) {
+//will produce an infinite loop
+}
+
+let currentNumber = 0;
+while(currentNumber < 100) { // Will continue until currentNumber is 100 or greater
+  console.log(currentNumber);
+  currentNumber++; //If you forget this it will be an infinite loop
+}
+
+
+// Do something before starting the loop. Will repeat what is in do block
+let response = null;
+do {
+  response = prompt("Please enter your name")
+} while(!response);
+
+#+END_SRC
+
+** Loops
+- Special keywords
+  - break
+  - continue
+
+* Daily Challenge
+- FizzBuzz Challenge
+    - Create a new codepen
+    - Write a function called fizzbuzz that accepts no parameters
+    - The function is to print out all numbers from 1 to 100 with 3 exceptions
+        - Every number divisible by 3 and 5 console.log "FizzBuzz"
+        - Every number divisible by 3 and not 5 console.log "Fizz"
+        - Every number divisible by 5 and not 3 console.log "Buzz"
+
+** Daily Challenge
+- Any questions
+
+* The DOM
+- Document Object Model
+  - Object of website layout
+    - Structure
+    - Style
+    - Content
+  - API to interact with it
+
+** DOM - Properties
+- Can access element properties
+  - .innerHtml
+  - .<attribute>
+** DOM - Methods
+- .getElementById()
+- .createElement()
+- .appendChild()
+
+** DOM - Example
+- Using existing element
+- Creating elements
+
+* Event Listeners
+- Listens for events
+- Can add and remove them from events
+- [[https://www.w3schools.com/js/js_htmldom_eventlistener.asp][Using Event Listeners]]
+- [[https://www.w3schools.com/jsref/dom_obj_event.asp][List of different events available]]
+
+** Event Listeners
+#+BEGIN_SRC html
+    <input type="text" onchange="getMovieSearch(this.value)" id="movie-search" placeholder="Movie Title" />
+#+END_SRC
+#+BEGIN_SRC javascript
+    btn.addEventListener("click", clearResults)
+    btn.addEventListener("mouseenter", showWarning)
+    btn.addEventListener("mouseleave", removeWarning)
+#+END_SRC
+
+* Take Home Challenge - 2
+- Building from Take Home Challenge - 1
+- Use javascript to create and append the following to your HTML:
+  - Button element (with text)
+- Now add the following functionality:
+  - If you haven't already create a function that will make the API request
+  - Add an event listener to your button
+  - When your button is clicked, it should make the API request and append the results to the DOM
