@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+import { Car } from './car.js';
+
+export function initializeCarForm(cars, activeIndex) {
     const clearBtn = document.querySelector("#form-clear");
     const form = document.querySelector("#car-form");
     const make = document.querySelector("#make")
@@ -15,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         activeIndex = cars.indexOf(car);
         const container = document.querySelector(".container");
         container.removeChild(document.querySelector(".car"));
-        cars[activeIndex].initialize();
+        cars[activeIndex].initialize(cars);
         sessionStorage.clear()
         form.reset();
     })
@@ -59,6 +61,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
     loadForm();
-
-
-}, false);
+}

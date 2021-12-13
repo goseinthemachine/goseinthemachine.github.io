@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+export function initialize(cars, activeIndex) {
     const container = document.querySelector(".container")
     document.querySelector("#toggle-form").addEventListener("click", function (event) {
         event.preventDefault();
@@ -28,4 +28,4 @@ document.addEventListener("DOMContentLoaded", () => {
         cars[activeIndex].initialize();
     })
 
-}, false)
+};

@@ -1,4 +1,7 @@
-class Car {
+import { BING_API_KEY, BING_API_URL } from './env.js'
+import * as storage from './storage.js';
+
+export class Car {
     make;
     model;
     year;
@@ -13,8 +16,7 @@ class Car {
         })
     }
 
-    initialize() {
-
+    initialize(cars) {
         if (this.image) {
             this.render();
         } else {
@@ -25,11 +27,10 @@ class Car {
                 if (!results?.value && results.value.length <= 0) throw new Error("Could not retrieve Image")
                 car.image = results?.value[0]?.thumbnailUrl;
                 car.render();
-                saveCarsToLocalStorage()
+                storage.saveCarsToLocalStorage('cars', cars)
                 // saveCarsToSessionStorage()
             })
         }
-
     }
 
     static createCarFromForm(form) {
