@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Intro to JavaScript - Day 3</title>
+<meta name="author" content="Cameron Gose"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Intro to JavaScript - Day 3</h1><h2 class="author">Cameron Gose</h2><p class="date">Created: 2021-11-08 Mon 18:02</p>
+</section>
+
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> Agenda</h2>
+<ul>
+<li>String Methods</li>
+<li>Pop Up Methods</li>
+<li>Daily Challenge</li>
+<li>Math Properties</li>
+<li>Date Object</li>
+<li>Take Home Challenge</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> Take Home Review</h2>
+<ul>
+<li>Assigning variables</li>
+<li>Questions?</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> Array and String methods</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1.</span> Both</h3>
+<ul>
+<li>.length</li>
+<li>string[0]</li>
+<li>indexOf(&rsquo;world&rsquo;)</li>
+<li>.slice(0,3)</li>
+
+</ul>
+
+</section>
+<section id="slide-3-2">
+<h3 id="3-2"><span class="section-number-3">3.2.</span> Array</h3>
+<ul>
+<li>.join()</li>
+<li>.split()</li>
+<li>.reverse()</li>
+<li><a href="https://developer.mozilla.org/en-US/search?q=Arrays">Others</a></li>
+
+</ul>
+
+</section>
+<section id="slide-3-3">
+<h3 id="3-3"><span class="section-number-3">3.3.</span> String</h3>
+<ul>
+<li>.toLowerCase()</li>
+<li>.toUpperCase()</li>
+<li>.replace(&rsquo;pattern&rsquo;, &rsquo;replacement&rsquo;)</li>
+<li>.repeat(10)</li>
+<li>startsWith(str, index) (ES16)</li>
+<li>endsWith(toMatch, length=str.length) (ES16)</li>
+<li>includes(toMatch, index=0) (ES16)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">Others</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> Pop Up Methods</h2>
+<ul>
+<li>alert()</li>
+<li>confirm()</li>
+<li>prompt()</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">userName</span> = prompt(<span style="color: #99bb66;">"What's your name"</span>);
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">confirmed</span> = confirm(<span style="color: #99bb66;">`Is ${userName} your name?`</span>);
+alert(<span style="color: #99bb66;">`Hello, ${userName}!`</span>)
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> Daily Challenge</h2>
+<ul>
+<li><a href="https://codepen.io/rockygg/pen/bGpJXbL?editors=0010">Codepen Link</a></li>
+<li>Challenge 1
+<ul>
+<li>Instructions
+<ul>
+<li>Prompt the user for their first name</li>
+<li>Store their input to a variable</li>
+<li>Reverse your user&rsquo;s name</li>
+<li>Alert the reversed string</li>
+
+</ul></li>
+
+</ul></li>
+<li>Challenge 2
+<ul>
+<li>Instructions
+<ul>
+<li>Prompt for a number value (provide a default of 10)</li>
+<li>Prompt for a second number value (provide a default of 10)</li>
+<li>Convert the prompted values into integers using parseInt()</li>
+<li>Add the numbers together and alert the user with the results</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> Math</h2>
+<ul>
+<li>Global Object</li>
+
+</ul>
+</section>
+<section id="slide-6-1">
+<h3 id="6-1"><span class="section-number-3">6.1.</span> Properties</h3>
+<ul>
+<li>E (Euler&rsquo;s constant)</li>
+<li>LN2 (Natural logarithm of 2)</li>
+<li>LN10 (Natural logarithm of 10)</li>
+<li>LOG2E (Base 2 logarithm of E)</li>
+<li>LOG10E (Base 10 logarithm of E)</li>
+<li>PI</li>
+<li>SQRT1<sub>2</sub> (Square root of 1/2)</li>
+<li>SQRT2 (Square root of 2)</li>
+
+</ul>
+
+</section>
+<section id="slide-6-2">
+<h3 id="6-2"><span class="section-number-3">6.2.</span> Methods</h3>
+<ul>
+<li>Math.abs(x)</li>
+<li>Math.ceil(x)</li>
+<li>Math.floor(x)</li>
+<li>Math.round(x)</li>
+<li>Math.max([1,2,3,&#x2026;.])</li>
+<li>Math.min([1,2,3])</li>
+<li>Math.pow(x, y)</li>
+<li>Math.random()</li>
+<li>Math.sqrt()</li>
+<li>Math.trunc()</li>
+<li><a href="https://codepen.io/rockygg/pen/bGpJXbL?editors=0010">Others</a></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-7">
+<h2 id="7"><span class="section-number-2">7.</span> Date Object</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+</section>
+<section id="slide-7-1">
+<h3 id="7-1"><span class="section-number-3">7.1.</span> Constructor</h3>
+<ul>
+<li>Can call as function</li>
+<li>Can also create new Date object</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">dateString</span> = Date() <span style="color: #525252;">//</span><span style="color: #525252;">equivalent to new Date().toString()</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">date</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Date</span>()
+</pre>
+</div>
+
+</section>
+<section id="slide-7-2">
+<h3 id="7-2"><span class="section-number-3">7.2.</span> Static methods</h3>
+<p>
+What is static?
+</p>
+<ul>
+<li>.now()</li>
+<li>.parse()</li>
+<li>.UTC()
+<ul>
+<li>Coordinated Universal Time</li>
+
+</ul></li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">// </span><span style="color: #525252;">Time starts at 1 January 1970,00:00:00 UTC</span>
+Date.now() <span style="color: #525252;">//</span><span style="color: #525252;">returns numeric value</span>
+Date.parse(<span style="color: #99bb66;">"11/08/2021"</span>)
+Date.parse(<span style="color: #99bb66;">"04 Dec 1995 00:12:00 GMT"</span>)
+Date.UTC(year)
+Date.UTC(year, month)
+Date.UTC(year, month, day)
+Date.UTC(year, month, day, hour)
+Date.UTC(year, month, day, hour, minute)
+Date.UTC(year, month, day, hour, minute, second)
+Date.UTC(year, month, day, hour, minute, second, millisecond)
+</pre>
+</div>
+
+</section>
+<section id="slide-7-3">
+<h3 id="7-3"><span class="section-number-3">7.3.</span> Instance methods</h3>
+<p>
+What is an instance?
+</p>
+<ul>
+<li>getDate()</li>
+<li>getDay()</li>
+<li>getFullYear()</li>
+<li>getHours()</li>
+<li>getMonth()</li>
+<li>toLocaleTimeString()</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Others</a></li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">// </span><span style="color: #525252;">Depending on timezone, your results will vary</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">event</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Date</span>(<span style="color: #99bb66;">'August 19, 1975 23:15:30 GMT+00:00'</span>);
+
+console.log(event.toLocaleTimeString(<span style="color: #99bb66;">'en-US'</span>));
+<span style="color: #525252;">// </span><span style="color: #525252;">expected output: 1:15:30 AM</span>
+
+console.log(event.toLocaleTimeString(<span style="color: #99bb66;">'it-IT'</span>));
+<span style="color: #525252;">// </span><span style="color: #525252;">expected output: 01:15:30</span>
+
+console.log(event.toLocaleTimeString(<span style="color: #99bb66;">'ar-EG'</span>));
+<span style="color: #525252;">// </span><span style="color: #525252;">expected output: &#1633;&#1634;:&#1633;&#1637;:&#1635;&#1632; &#1589;</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-8">
+<h2 id="8"><span class="section-number-2">8.</span> Take Home Challenge</h2>
+<ul>
+<li><a href="https://codepen.io/rockygg/pen/jOqRgPv?editors=0010">Link to Codepen</a></li>
+<li>Instructions
+<ul>
+<li>Ask for the user&rsquo;s first name</li>
+<li>Ask for the user&rsquo;s last name</li>
+<li>Log the user&rsquo;s first name to the console</li>
+<li>Alert the user&rsquo;s last name</li>
+<li>Bonus
+<ul>
+<li>Ask for the user&rsquo;s birthday</li>
+<li>Ask the user to confirm their birthday input</li>
+<li>Alert the user&rsquo;s birthday</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>JavaScript for Beginners</title>
+<meta name="author" content="Cameron Gose"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">JavaScript for Beginners</h1><h2 class="author">Cameron Gose</h2><p class="date">Created: 2021-11-01 Mon 20:41</p>
+</section>
+
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> Roadmap</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-1-1">
+<h3 id="1-1"><span class="section-number-3">1.1.</span> Week 1</h3>
+<ul>
+<li>Git Review</li>
+<li>Intro to JavaScript</li>
+<li>Syntax</li>
+<li>The Console</li>
+<li>Data Types</li>
+<li>Operators</li>
+
+</ul>
+
+</section>
+<section id="slide-1-2">
+<h3 id="1-2"><span class="section-number-3">1.2.</span> Week 2</h3>
+<ul>
+<li>Variables</li>
+<li>Pop Up Methods</li>
+<li>Math Properties</li>
+<li>Date Object</li>
+<li>Control Flow</li>
+<li>Edge Cases</li>
+<li>Debugging</li>
+
+</ul>
+
+</section>
+<section id="slide-1-3">
+<h3 id="1-3"><span class="section-number-3">1.3.</span> Week 3</h3>
+<ul>
+<li>Functions</li>
+<li>Scopes and Closures</li>
+<li>Promises and Callbacks</li>
+<li>APIs</li>
+<li>JSON</li>
+
+</ul>
+
+</section>
+<section id="slide-1-4">
+<h3 id="1-4"><span class="section-number-3">1.4.</span> Week 4</h3>
+<ul>
+<li>Arrays</li>
+<li>Loops</li>
+<li>The DOM</li>
+<li>Event Listeners</li>
+<li>Objects</li>
+<li>Classes</li>
+
+</ul>
+
+</section>
+<section id="slide-1-5">
+<h3 id="1-5"><span class="section-number-3">1.5.</span> Week 5</h3>
+<ul>
+<li>Forms</li>
+<li>HTTP Requests</li>
+<li>Storing Data</li>
+<li>Timers</li>
+
+</ul>
+
+</section>
+<section id="slide-1-6">
+<h3 id="1-6"><span class="section-number-3">1.6.</span> Week 6</h3>
+<ul>
+<li>Modules</li>
+<li>Regex</li>
+<li>IIFE</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> Why JavaScript</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+</section>
+<section id="slide-2-1">
+<h3 id="2-1"><span class="section-number-3">2.1.</span> What can you use it for</h3>
+<ul>
+<li>JavaScript sprinkles</li>
+<li>Web Applications</li>
+<li>Server software</li>
+<li>Mobile Apps</li>
+<li>Desktop Applications</li>
+<li>Games</li>
+<li>Hardware</li>
+
+</ul>
+
+</section>
+<section id="slide-2-2">
+<h3 id="2-2"><span class="section-number-3">2.2.</span> JavaScript Sprinkles</h3>
+<ul>
+<li>AJAX: Asynchronous JavaScript And XML</li>
+<li>Adding a little interactivity</li>
+<li>Form submissions</li>
+<li>Loading screens</li>
+<li>Pop ups/modals</li>
+<li>Updating data on form submission</li>
+
+</ul>
+
+</section>
+<section id="slide-2-3">
+<h3 id="2-3"><span class="section-number-3">2.3.</span> Web Applications</h3>
+<ul>
+<li>Complete Applications</li>
+<li>JavaScript Frameworks
+<ul>
+<li>React</li>
+<li>Vue</li>
+<li>Angular</li>
+<li>Svelte</li>
+<li>VanillaJS</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-2-4">
+<h3 id="2-4"><span class="section-number-3">2.4.</span> Server Software</h3>
+<ul>
+<li>Node.js
+<ul>
+<li>express</li>
+<li>Nest.js</li>
+<li>Sail.js</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-2-5">
+<h3 id="2-5"><span class="section-number-3">2.5.</span> Mobile Apps</h3>
+<ul>
+<li>React Native</li>
+<li>Native Script</li>
+<li>Cordova</li>
+
+</ul>
+
+</section>
+<section id="slide-2-6">
+<h3 id="2-6"><span class="section-number-3">2.6.</span> Desktop Applications</h3>
+<ul>
+<li>Electron</li>
+
+</ul>
+
+</section>
+<section id="slide-2-7">
+<h3 id="2-7"><span class="section-number-3">2.7.</span> Games</h3>
+<ul>
+<li>Phaser</li>
+<li>WebGL</li>
+<li>Three.js</li>
+
+</ul>
+
+</section>
+<section id="slide-2-8">
+<h3 id="2-8"><span class="section-number-3">2.8.</span> Hardware</h3>
+<ul>
+<li>Arduino</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> Little bit of history</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1.</span> Origins of JavaScript</h3>
+<ul>
+<li>In September 1995, a Netscape programmer Brandan Eich developed a new scripting language in just 10 days. It was originally named Mocha, but quickly became known as LiveScript and, later, JavaScript.</li>
+<li>Because of its popularity Netscape handed the language specification development to the European Computer Manufacturers Association (ECMA)</li>
+
+</ul>
+</section>
+<section id="slide-3-2">
+<h3 id="3-2"><span class="section-number-3">3.2.</span> Time Line</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Version</th>
+<th scope="col" class="org-left">Official Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ES1</td>
+<td class="org-left">ECMAScript 1 (1997)</td>
+</tr>
+
+<tr>
+<td class="org-left">ES2</td>
+<td class="org-left">ECMAScript 2 (1998)</td>
+</tr>
+
+<tr>
+<td class="org-left">ES3</td>
+<td class="org-left">ECMAScript 3 (1999)</td>
+</tr>
+
+<tr>
+<td class="org-left">ES4</td>
+<td class="org-left">ECMAScript 4 (Never Released)</td>
+</tr>
+
+<tr>
+<td class="org-left">ES5</td>
+<td class="org-left">ECMAScript 5 (2009)</td>
+</tr>
+
+<tr>
+<td class="org-left">ES6</td>
+<td class="org-left">ECMAScript 2015</td>
+</tr>
+
+<tr>
+<td class="org-left">ES6</td>
+<td class="org-left">ECMAScript 2016</td>
+</tr>
+
+<tr>
+<td class="org-left">ES6</td>
+<td class="org-left">ECMAScript 2017</td>
+</tr>
+
+<tr>
+<td class="org-left">ES6</td>
+<td class="org-left">ECMAScript 2018</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-3-3">
+<h3 id="3-3"><span class="section-number-3">3.3.</span> ECMAScript Runtimes</h3>
+<ul>
+<li>ECMAScript is the language spec</li>
+<li>Runtimes that implement the spec
+<ul>
+<li>Google Chrome V8 Engine</li>
+<li>Firefox (SpiderMonkey .. WarpMonkey)</li>
+<li>Microsoft Edge (Blink now V8 )</li>
+<li>Internet Explorer (Chakra)</li>
+<li>Node.js (V8)</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> Getting Started</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+</section>
+<section id="slide-4-1">
+<h3 id="4-1"><span class="section-number-3">4.1.</span> Inline</h3>
+<ul>
+<li>Not Recommended</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-html">&lt;<span style="color: #c678dd;">button</span> <span style="color: #dcaeea;">onclick</span>=<span style="color: #99bb66;">"confirm('Are you sure?')"</span>&gt;Delete&lt;/<span style="color: #c678dd;">button</span>&gt;
+</pre>
+</div>
+</section>
+<section id="slide-4-2">
+<h3 id="4-2"><span class="section-number-3">4.2.</span> Internal</h3>
+<ul>
+<li>Sometimes appropriate</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-html">&lt;<span style="color: #c678dd;">script</span>&gt;let pageElement = document.getElementById('my-id');&lt;/<span style="color: #c678dd;">script</span>&gt;
+</pre>
+</div>
+</section>
+<section id="slide-4-3">
+<h3 id="4-3"><span class="section-number-3">4.3.</span> External</h3>
+<ul>
+<li>The preferred way</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-html">&lt;<span style="color: #c678dd;">script</span> <span style="color: #dcaeea;">src</span>=<span style="color: #99bb66;">"js/script.js"</span>&gt;&lt;/<span style="color: #c678dd;">script</span>&gt;
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> Daily Challenge</h2>
+<ol>
+<li>Go to github.com</li>
+<li>Create a new repository named javascript-practice</li>
+<li>Clone your new repository</li>
+<li>Open your project in Visual Studio Code</li>
+<li>Add the following files:
+<ul>
+<li>index.html</li>
+<li>js/script.js</li>
+<li>css/style.css (optional)</li>
+
+</ul></li>
+<li>Link your script file externally</li>
+<li>Add, commit and push changes to your main branch</li>
+
+</ol>
+
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> Syntax</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+</section>
+<section id="slide-6-1">
+<h3 id="6-1"><span class="section-number-3">6.1.</span> White Space</h3>
+<p>
+Is not meaningful
+</p>
+<div class="org-src-container">
+
+<pre class="src src-javascript">console.log(<span style="color: #99bb66;">"hello"</span>)
+console .        log       (   <span style="color: #99bb66;">"hello"</span>   )
+</pre>
+</div>
+</section>
+<section id="slide-6-2">
+<h3 id="6-2"><span class="section-number-3">6.2.</span> Case Sensitivity</h3>
+<p>
+Is Case Sensitive
+</p>
+<div class="org-src-container">
+
+<pre class="src src-javascript">    <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">hello</span> = <span style="color: #99bb66;">"world"</span>;
+    <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">HELLO</span> = <span style="color: #99bb66;">"WOLRD"</span>
+    console.log(hello);
+    console.log(HELLO)
+</pre>
+</div>
+</section>
+<section id="slide-6-3">
+<h3 id="6-3"><span class="section-number-3">6.3.</span> Comments</h3>
+<p>
+Is not processed
+Used for adding comment to code
+</p>
+<div class="org-src-container">
+
+<pre class="src src-javascript"> <span style="color: #525252;">//</span><span style="color: #525252;">This is a comment</span>
+ <span style="color: #525252;">//</span><span style="color: #ECBE7B; font-weight: bold;">TODO:</span><span style="color: #525252;"> Remove this comment</span>
+ <span style="color: #525252;">//</span><span style="color: #525252;">This console.log is here for debugging purposes</span>
+ <span style="color: #525252;">/*</span>
+<span style="color: #525252;">   This is a</span>
+<span style="color: #525252;">   multi line comment</span>
+<span style="color: #525252;">*/</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-6-4">
+<h3 id="6-4"><span class="section-number-3">6.4.</span> Semi-colons</h3>
+<p>
+They are optional in most cases
+</p>
+<div class="org-src-container">
+
+<pre class="src src-javascript">console.log(<span style="color: #99bb66;">"Hello"</span>);
+console.log(<span style="color: #99bb66;">"hello"</span>)
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-7">
+<h2 id="7"><span class="section-number-2">7.</span> The Console</h2>
+<p>
+Can find it by right-clicking in browser
+Open browser &gt; right click &gt; inspect &gt; console
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-8">
+<h2 id="8"><span class="section-number-2">8.</span> Take Home Challenge</h2>
+<ul>
+<li>Using your Daily Challenge repository:
+<ul>
+<li>Create a new branch called take-home</li>
+<li>Add the following to your script file:
+<ul>
+<li>Single line comment</li>
+<li>Multi-line comment</li>
+<li>Log your name to the console</li>
+<li>Log your favorite food to the console</li>
+
+</ul></li>
+
+</ul></li>
+<li>Add, commit, and push your changes to your take-home branch</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+#+TITLE: Intro to JavaScript - Day 3
+#+AUTHOR: Cameron Gose
+#+EMAIL: cgose@bitwiseindustries.com
+#+REVEAL_THEME: solarized
+#+OPTIONS: toc:nil
+
+* Agenda
++ String Methods
++ Pop Up Methods
++ Daily Challenge
++ Math Properties
++ Date Object
++ Take Home Challenge
+
+* Take Home Review
+- Assigning variables
+- Questions?
+
+* Array and String methods
+** Both
++ .length
++ string[0]
++ indexOf('world')
++ .slice(0,3)
+
+** Array
++ .join()
++ .split()
++ .reverse()
++ [[https://developer.mozilla.org/en-US/search?q=Arrays][Others]]
+
+** String
++ .toLowerCase()
++ .toUpperCase()
++ .replace('pattern', 'replacement')
++ .repeat(10)
++ startsWith(str, index) (ES16)
++ endsWith(toMatch, length=str.length) (ES16)
++ includes(toMatch, index=0) (ES16)
++ [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String][Others]]
+
+* Pop Up Methods
++ alert()
++ confirm()
++ prompt()
+#+BEGIN_SRC javascript
+const userName = prompt("What's your name");
+const confirmed = confirm(`Is ${userName} your name?`);
+alert(`Hello, ${userName}!`)
+#+END_SRC
+
+* Daily Challenge
++ [[https://codepen.io/rockygg/pen/bGpJXbL?editors=0010][Codepen Link]]
++ Challenge 1
+  - Instructions
+    + Prompt the user for their first name
+    + Store their input to a variable
+    + Reverse your user's name
+    + Alert the reversed string
++ Challenge 2
+  - Instructions
+    + Prompt for a number value (provide a default of 10)
+    + Prompt for a second number value (provide a default of 10)
+    + Convert the prompted values into integers using parseInt()
+    + Add the numbers together and alert the user with the results
+
+* Math
++ Global Object
+** Properties
++ E (Euler's constant)
++ LN2 (Natural logarithm of 2)
++ LN10 (Natural logarithm of 10)
++ LOG2E (Base 2 logarithm of E)
++ LOG10E (Base 10 logarithm of E)
++ PI
++ SQRT1_2 (Square root of 1/2)
++ SQRT2 (Square root of 2)
+
+** Methods
++ Math.abs(x)
++ Math.ceil(x)
++ Math.floor(x)
++ Math.round(x)
++ Math.max([1,2,3,....])
++ Math.min([1,2,3])
++ Math.pow(x, y)
++ Math.random()
++ Math.sqrt()
++ Math.trunc()
++ [[https://codepen.io/rockygg/pen/bGpJXbL?editors=0010][Others]]
+
+
+* Date Object
+** Constructor
++ Can call as function
++ Can also create new Date object
+#+BEGIN_SRC javascript
+const dateString = Date() //equivalent to new Date().toString()
+const date = new Date()
+#+END_SRC
+
+** Static methods
+What is static?
++ .now()
++ .parse()
++ .UTC()
+  - Coordinated Universal Time
+#+BEGIN_SRC javascript
+// Time starts at 1 January 1970,00:00:00 UTC
+Date.now() //returns numeric value
+Date.parse("11/08/2021")
+Date.parse("04 Dec 1995 00:12:00 GMT")
+Date.UTC(year)
+Date.UTC(year, month)
+Date.UTC(year, month, day)
+Date.UTC(year, month, day, hour)
+Date.UTC(year, month, day, hour, minute)
+Date.UTC(year, month, day, hour, minute, second)
+Date.UTC(year, month, day, hour, minute, second, millisecond)
+#+END_SRC
+
+** Instance methods
+What is an instance?
++ getDate()
++ getDay()
++ getFullYear()
++ getHours()
++ getMonth()
++ toLocaleTimeString()
++ [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date][Others]]
+
+#+BEGIN_SRC javascript
+// Depending on timezone, your results will vary
+const event = new Date('August 19, 1975 23:15:30 GMT+00:00');
+
+console.log(event.toLocaleTimeString('en-US'));
+// expected output: 1:15:30 AM
+
+console.log(event.toLocaleTimeString('it-IT'));
+// expected output: 01:15:30
+
+console.log(event.toLocaleTimeString('ar-EG'));
+// expected output: ١٢:١٥:٣٠ ص
+#+END_SRC
+* Take Home Challenge
++ [[https://codepen.io/rockygg/pen/jOqRgPv?editors=0010][Link to Codepen]]
++ Instructions
+  - Ask for the user's first name
+  - Ask for the user's last name
+  - Log the user's first name to the console
+  - Alert the user's last name
+  - Bonus
+    + Ask for the user's birthday
+    + Ask the user to confirm their birthday input
+    + Alert the user's birthday

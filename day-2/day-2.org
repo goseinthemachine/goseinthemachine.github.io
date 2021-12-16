@@ -1,0 +1,157 @@
+#+TITLE: JavaScript for Beginners Day 2
+#+AUTHOR: Cameron Gose
+#+EMAIL: cgose@bitwiseindustries.com
+#+REVEAL_THEME: solarized
+#+OPTIONS: toc:nil
+
+* Take Home Review
++ Merge into master using github
++ Make sure to pull latest changes from master/main branch
++ Discuss the Github Workflow
+  - Create a branch
+  - Add commits
+  - Open a Pull Request/Merge Request
+  - Discuss and review
+  - Merge into master/main branch
++ Any questions?
+
+* Git Review
++ Github
++ Create a Repository
++ Git workflow
+
+* Data Types
+
+** Primitive Data Types
++ String
++ Numbers
++ Boolean
++ Undefined
++ null
++ BigInt
++ Symbol
+
+*** String
++ Always wrapped in single or double quotes or template literals
++ .length property
++ Concatenation
++ Interpolation
+
+*** Number
++ Used for integers and decimal values
++ JavaScript using floating point numbers
++ Infinity
+  #+BEGIN_SRC javascript
+  const maxNumber = Math.pow(10, 1000);
+  #+END_SRC
++ NaN
+ #+BEGIN_SRC javascript
+ let num = Number.parseInt("hello")
+ typeof(num)
+ num === NaN
+ Number.isNaN(num)
+ num = Math.pow(10, 308);
+ #+END_SRC
+
+*** Boolean
++ True/Truthy
++ False/Falsy
+*** Undefined
++ as name suggests hasn't been defined yet
++ Show example
+*** Null
++ Similar to Undefined but it is an absence of value
+*** BigInt
++ Used for integers of longer length than number type
++ Created by adding "n" to end of integer
+*** Symbol
++ Create anonyous and unique values
+
+*** Grabbing the type
++ Use typeof
++ Show some examples
+
+* Daily Challenge
++ In your js-practice repository (one we created last time):
+  - Create a new branch named day-2
+  - Using the .length property, log the length of the word "Supercalifragilisticexpialidocious" to the Console
+  - Console log any number
+  - Console log a BigInt
+  - Use typeof to confirm you number and BigInt values
+  - Add, commit, and push to you day-2 branch
+
+* Daily Challenge Review
++ Questions
+
+* Variables
++ var
++ let
++ const
++ Naming Variables
++ Hoisting
+
+** var
++ Mostly don't use any more
++ has strange scoping rules global unless within block
++ Can be redeclared
++ Can be used for hoisting
+** let
++ Can be declared once within scope
++ It has a block scope
++ Can be reassigned
+** const
++ Can be declared once within scope
++ It has a block scope
++ Cannot be reassigned
++ Show object and tell difference between that and reassignment
+
+** Naming Variables
++ Names can contain letters, digits, underscores, and dollar signs.
++ Names must begin with a letter
++ Names are case sensitive (y and Y are different variables)
++ Reserved words (like JavaScript keywords) cannot be used as names
+** Hoisting
++ var variable brought to top of code before var actually declared
++ Also occurs with functions
+ #+BEGIN_SRC javascript
+    var pi = 3.14;
+    var person = "John Doe";
+    var answer = 'Yes I am!';
+
+    writeToElement();
+
+    function writeToElement() {
+        document.getElementById("demo").innerHTML =
+            pi + "<br>" + person + "<br>" + answer + "<br>" + x;
+    }
+
+    var x = "This will be undefined"
+#+END_SRC
+* Operators
++ Assignment
++ Arithmetic
++ Comparison / Logical
+** Assignment Operators
++ = assignment
++ += addition assignment
++ -= subtraction assignment
++ *= multiplication assignment
++ /= division assignment
+** Arithmetic Operators
++ + addition
++ - subtraction
++ * multiplication
++ / division
++ % modulo
+** Comparison / Logical Operators
++ == equal to
++ === equal value and equal type
++ != not equal
++ !== not equal value or not equal type
++ > greater than
++ < less than
++ >= greater than or equal to
++ <= less than or equal to
+* Take Home Challenge
++ Directions for the take home can be found in this Codepen: Mad Libs Challenge
++ If you want to save your work, you will need to create a free codepen account
