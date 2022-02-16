@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="js/env.js" defer></script>
+    <script src="js/car.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <div class="controls">
+        <button id="prev-car">Prev Car</button>
+        <button id="toggle-form">Toggle Form</button>
+        <button id="next-car">Next Car</button>
+    </div>
+    <form class="form" id="car-form" name="add-car-form">
+        <div class="form-field">
+            <label for="make">Make:</label>
+            <input type="text" name="make" id="make" placeholder="Enter a Car Make">
+        </div>
+        <div class="form-field">
+            <label for="model">Model:</label>
+            <input type="text" name="model" id="model" placeholder="Enter a Car Model">
+        </div>
+        <div class="form-field">
+            <label for="year">Year:</label>
+            <input type="text" name="year" id="year">
+        </div>
+        <div class="form-field">
+            <label for="color">Color:</label>
+            <input type="text" name="color" id="color">
+        </div>
+        <div class="form-field">
+            <label for="condition">Car Condition:</label>
+            <label for="new">New</label>
+            <input type="radio" name="condition" id="new" value="New" />
+            <label for="used">Used</label>
+            <input type="radio" name="condition" id="used" value="Used" />
+        </div>
+        <div class="form-controls">
+            <input type="submit" value="Add Car">
+            <button type="button" id="form-clear">Clear Form</button>
+        </div>
+    </form>
+
+    <div id="container"></div>
+
+</body>
+
+</html>
