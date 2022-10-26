@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>JavaScript for Beginners Day 2</title>
+<meta name="author" content="Cameron Gose"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">JavaScript for Beginners Day 2</h1><h2 class="author">Cameron Gose</h2><p class="date">Created: 2021-11-03 Wed 17:36</p>
+</section>
+
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> Take Home Review</h2>
+<ul>
+<li>Merge into master using github</li>
+<li>Make sure to pull latest changes from master/main branch</li>
+<li>Discuss the Github Workflow
+<ul>
+<li>Create a branch</li>
+<li>Add commits</li>
+<li>Open a Pull Request/Merge Request</li>
+<li>Discuss and review</li>
+<li>Merge into master/main branch</li>
+
+</ul></li>
+<li>Any questions?</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> Git Review</h2>
+<ul>
+<li>Github</li>
+<li>Create a Repository</li>
+<li>Git workflow</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> Data Types</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1.</span> Primitive Data Types</h3>
+<ul>
+<li>String</li>
+<li>Numbers</li>
+<li>Boolean</li>
+<li>Undefined</li>
+<li>null</li>
+<li>BigInt</li>
+<li>Symbol</li>
+
+</ul>
+
+</section>
+<section id="slide-3-1-1">
+<h4 id="3-1-1"><span class="section-number-4">3.1.1.</span> String</h4>
+<ul>
+<li>Always wrapped in single or double quotes or template literals</li>
+<li>.length property</li>
+<li>Concatenation</li>
+<li>Interpolation</li>
+
+</ul>
+
+</section>
+<section id="slide-3-1-2">
+<h4 id="3-1-2"><span class="section-number-4">3.1.2.</span> Number</h4>
+<ul>
+<li>Used for integers and decimal values</li>
+<li>JavaScript using floating point numbers</li>
+<li><p>
+Infinity
+</p>
+<div class="org-src-container">
+
+<pre class="src src-javascript">  <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">maxNumber</span> = Math.pow(<span style="color: #dd8844; font-weight: bold;">10</span>, <span style="color: #dd8844; font-weight: bold;">1000</span>);
+</pre>
+</div></li>
+<li><p>
+NaN
+</p>
+<div class="org-src-container">
+
+<pre class="src src-javascript"> <span style="color: #51afef;">let</span> <span style="color: #dcaeea;">num</span> = Number.parseInt(<span style="color: #99bb66;">"hello"</span>)
+ <span style="color: #51afef;">typeof</span>(num)
+ num === <span style="color: #a9a1e1;">NaN</span>
+ Number.isNaN(num)
+ num = Math.pow(<span style="color: #dd8844; font-weight: bold;">10</span>, <span style="color: #dd8844; font-weight: bold;">308</span>);
+</pre>
+</div></li>
+
+</ul>
+
+</section>
+<section id="slide-3-1-3">
+<h4 id="3-1-3"><span class="section-number-4">3.1.3.</span> Boolean</h4>
+<ul>
+<li>True/Truthy</li>
+<li>False/Falsy</li>
+
+</ul>
+</section>
+<section id="slide-3-1-4">
+<h4 id="3-1-4"><span class="section-number-4">3.1.4.</span> Undefined</h4>
+<ul>
+<li>as name suggests hasn&rsquo;t been defined yet</li>
+<li>Show example</li>
+
+</ul>
+</section>
+<section id="slide-3-1-5">
+<h4 id="3-1-5"><span class="section-number-4">3.1.5.</span> Null</h4>
+<ul>
+<li>Similar to Undefined but it is an absence of value</li>
+
+</ul>
+</section>
+<section id="slide-3-1-6">
+<h4 id="3-1-6"><span class="section-number-4">3.1.6.</span> BigInt</h4>
+<ul>
+<li>Used for integers of longer length than number type</li>
+<li>Created by adding &ldquo;n&rdquo; to end of integer</li>
+
+</ul>
+</section>
+<section id="slide-3-1-7">
+<h4 id="3-1-7"><span class="section-number-4">3.1.7.</span> Symbol</h4>
+<ul>
+<li>Create anonyous and unique values</li>
+
+</ul>
+
+</section>
+<section id="slide-3-1-8">
+<h4 id="3-1-8"><span class="section-number-4">3.1.8.</span> Grabbing the type</h4>
+<ul>
+<li>Use typeof</li>
+<li>Show some examples</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> Daily Challenge</h2>
+<ul>
+<li>In your js-practice repository (one we created last time):
+<ul>
+<li>Create a new branch named day-2</li>
+<li>Using the .length property, log the length of the word &ldquo;Supercalifragilisticexpialidocious&rdquo; to the Console</li>
+<li>Console log any number</li>
+<li>Console log a BigInt</li>
+<li>Use typeof to confirm you number and BigInt values</li>
+<li>Add, commit, and push to you day-2 branch</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> Daily Challenge Review</h2>
+<ul>
+<li>Questions</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> Variables</h2>
+<ul>
+<li>var</li>
+<li>let</li>
+<li>const</li>
+<li>Naming Variables</li>
+<li>Hoisting</li>
+
+</ul>
+
+</section>
+<section id="slide-6-1">
+<h3 id="6-1"><span class="section-number-3">6.1.</span> var</h3>
+<ul>
+<li>Mostly don&rsquo;t use any more</li>
+<li>has strange scoping rules global unless within block</li>
+<li>Can be redeclared</li>
+<li>Can be used for hoisting</li>
+
+</ul>
+</section>
+<section id="slide-6-2">
+<h3 id="6-2"><span class="section-number-3">6.2.</span> let</h3>
+<ul>
+<li>Can be declared once within scope</li>
+<li>It has a block scope</li>
+<li>Can be reassigned</li>
+
+</ul>
+</section>
+<section id="slide-6-3">
+<h3 id="6-3"><span class="section-number-3">6.3.</span> const</h3>
+<ul>
+<li>Can be declared once within scope</li>
+<li>It has a block scope</li>
+<li>Cannot be reassigned</li>
+<li>Show object and tell difference between that and reassignment</li>
+
+</ul>
+
+</section>
+<section id="slide-6-4">
+<h3 id="6-4"><span class="section-number-3">6.4.</span> Naming Variables</h3>
+<ul>
+<li>Names can contain letters, digits, underscores, and dollar signs.</li>
+<li>Names must begin with a letter</li>
+<li>Names are case sensitive (y and Y are different variables)</li>
+<li>Reserved words (like JavaScript keywords) cannot be used as names</li>
+
+</ul>
+</section>
+<section id="slide-6-5">
+<h3 id="6-5"><span class="section-number-3">6.5.</span> Hoisting</h3>
+<ul>
+<li>var variable brought to top of code before var actually declared</li>
+<li><p>
+Also occurs with functions
+</p>
+<div class="org-src-container">
+
+<pre class="src src-javascript">    <span style="color: #51afef;">var</span> <span style="color: #dcaeea;">pi</span> = <span style="color: #dd8844; font-weight: bold;">3.14</span>;
+    <span style="color: #51afef;">var</span> <span style="color: #dcaeea;">person</span> = <span style="color: #99bb66;">"John Doe"</span>;
+    <span style="color: #51afef;">var</span> <span style="color: #dcaeea;">answer</span> = <span style="color: #99bb66;">'Yes I am!'</span>;
+
+    writeToElement();
+
+    <span style="color: #51afef;">function</span> <span style="color: #c678dd;">writeToElement</span>() {
+        document.getElementById(<span style="color: #99bb66;">"demo"</span>).innerHTML =
+            pi + <span style="color: #99bb66;">"&lt;br&gt;"</span> + person + <span style="color: #99bb66;">"&lt;br&gt;"</span> + answer + <span style="color: #99bb66;">"&lt;br&gt;"</span> + x;
+    }
+
+    <span style="color: #51afef;">var</span> <span style="color: #dcaeea;">x</span> = <span style="color: #99bb66;">"This will be undefined"</span>
+</pre>
+</div></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-7">
+<h2 id="7"><span class="section-number-2">7.</span> Operators</h2>
+<ul>
+<li>Assignment</li>
+<li>Arithmetic</li>
+<li>Comparison / Logical</li>
+
+</ul>
+</section>
+<section id="slide-7-1">
+<h3 id="7-1"><span class="section-number-3">7.1.</span> Assignment Operators</h3>
+<ul>
+<li>= assignment</li>
+<li>+= addition assignment</li>
+<li>-= subtraction assignment</li>
+<li>*= multiplication assignment</li>
+<li>/= division assignment</li>
+
+</ul>
+</section>
+<section id="slide-7-2">
+<h3 id="7-2"><span class="section-number-3">7.2.</span> Arithmetic Operators</h3>
+<ul>
+<li>+ addition</li>
+<li>- subtraction</li>
+<li>* multiplication</li>
+<li>/ division</li>
+<li>% modulo</li>
+
+</ul>
+</section>
+<section id="slide-7-3">
+<h3 id="7-3"><span class="section-number-3">7.3.</span> Comparison / Logical Operators</h3>
+<ul>
+<li>== equal to</li>
+<li><code>=</code> equal value and equal type</li>
+<li>!= not equal</li>
+<li>!== not equal value or not equal type</li>
+<li>&gt; greater than</li>
+<li>&lt; less than</li>
+<li>&gt;= greater than or equal to</li>
+<li>&lt;= less than or equal to</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-8">
+<h2 id="8"><span class="section-number-2">8.</span> Take Home Challenge</h2>
+<ul>
+<li>Directions for the take home can be found in this Codepen: Mad Libs Challenge</li>
+<li>If you want to save your work, you will need to create a free codepen account</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

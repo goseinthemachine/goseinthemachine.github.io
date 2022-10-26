@@ -1,0 +1,203 @@
+#+TITLE: JavaScript for Beginners
+#+AUTHOR: Cameron Gose
+#+EMAIL: cgose@bitwiseindustries.com
+#+REVEAL_THEME: solarized
+#+OPTIONS: toc:nil
+
+* Roadmap
+** Week 1
++ Git Review
++ Intro to JavaScript
++ Syntax
++ The Console
++ Data Types
++ Operators
+
+** Week 2
++ Variables
++ Pop Up Methods
++ Math Properties
++ Date Object
++ Control Flow
++ Edge Cases
++ Debugging
+
+** Week 3
++ Functions
++ Scopes and Closures
++ Promises and Callbacks
++ APIs
++ JSON
+
+** Week 4
++ Arrays
++ Loops
++ The DOM
++ Event Listeners
++ Objects
++ Classes
+
+** Week 5
++ Forms
++ HTTP Requests
++ Storing Data
++ Timers
+
+** Week 6
++ Modules
++ Regex
++ IIFE
+
+* Why JavaScript
+** What can you use it for
++ JavaScript sprinkles
++ Web Applications
++ Server software
++ Mobile Apps
++ Desktop Applications
++ Games
++ Hardware
+
+** JavaScript Sprinkles
++ AJAX: Asynchronous JavaScript And XML
++ Adding a little interactivity
++ Form submissions
++ Loading screens
++ Pop ups/modals
++ Updating data on form submission
+
+** Web Applications
++ Complete Applications
++ JavaScript Frameworks
+  + React
+  + Vue
+  + Angular
+  + Svelte
+  + VanillaJS
+
+** Server Software
++ Node.js
+  + express
+  + Nest.js
+  + Sail.js
+
+** Mobile Apps
++ React Native
++ Native Script
++ Cordova
+
+** Desktop Applications
++ Electron
+
+** Games
++ Phaser
++ WebGL
++ Three.js
+
+** Hardware
++ Arduino
+* Little bit of history
+
+** Origins of JavaScript
+
++ In September 1995, a Netscape programmer Brandan Eich developed a new scripting language in just 10 days. It was originally named Mocha, but quickly became known as LiveScript and, later, JavaScript.
++ Because of its popularity Netscape handed the language specification development to the European Computer Manufacturers Association (ECMA)
+** Time Line
+
+| Version | Official Name                 |
+|---------+-------------------------------|
+| ES1     | ECMAScript 1 (1997)           |
+| ES2     | ECMAScript 2 (1998)           |
+| ES3     | ECMAScript 3 (1999)           |
+| ES4     | ECMAScript 4 (Never Released) |
+| ES5     | ECMAScript 5 (2009)           |
+| ES6     | ECMAScript 2015               |
+| ES6     | ECMAScript 2016               |
+| ES6     | ECMAScript 2017               |
+| ES6     | ECMAScript 2018               |
+
+** ECMAScript Runtimes
+- ECMAScript is the language spec
+- Runtimes that implement the spec
+  + Google Chrome V8 Engine
+  + Firefox (SpiderMonkey .. WarpMonkey)
+  + Microsoft Edge (Blink now V8 )
+  + Internet Explorer (Chakra)
+  + Node.js (V8)
+
+* Getting Started
+** Inline
++ Not Recommended
+#+BEGIN_SRC html
+<button onclick="confirm('Are you sure?')">Delete</button>
+#+END_SRC
+** Internal
++ Sometimes appropriate
+#+BEGIN_SRC html
+<script>let pageElement = document.getElementById('my-id');</script>
+#+END_SRC
+** External
++ The preferred way
+#+BEGIN_SRC html
+<script src="js/script.js"></script>
+#+END_SRC
+* Daily Challenge
+1. Go to github.com
+2. Create a new repository named javascript-practice
+3. Clone your new repository
+4. Open your project in Visual Studio Code
+5. Add the following files:
+ + index.html
+ + js/script.js
+ + css/style.css (optional)
+6. Link your script file externally
+7. Add, commit and push changes to your main branch
+
+* Syntax
+** White Space
+Is not meaningful
+#+BEGIN_SRC javascript
+console.log("hello")
+console .        log       (   "hello"   )
+#+END_SRC
+** Case Sensitivity
+    Is Case Sensitive
+    #+BEGIN_SRC javascript
+    let hello = "world";
+    let HELLO = "WOLRD"
+    console.log(hello);
+    console.log(HELLO)
+    #+END_SRC
+** Comments
+ Is not processed
+ Used for adding comment to code
+ #+BEGIN_SRC javascript
+ //This is a comment
+ //TODO: Remove this comment
+ //This console.log is here for debugging purposes
+ /*
+   This is a
+   multi line comment
+*/
+ #+END_SRC
+
+** Semi-colons
+They are optional in most cases
+#+BEGIN_SRC javascript
+console.log("Hello");
+console.log("hello")
+#+END_SRC
+
+* The Console
+Can find it by right-clicking in browser
+Open browser > right click > inspect > console
+
+* Take Home Challenge
+- Using your Daily Challenge repository:
+  + Create a new branch called take-home
+  + Add the following to your script file:
+    - Single line comment
+    - Multi-line comment
+    - Log your name to the console
+    - Log your favorite food to the console
+- Add, commit, and push your changes to your take-home branch

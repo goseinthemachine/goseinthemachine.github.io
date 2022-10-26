@@ -1,0 +1,91 @@
+#+TITLE: Intro to JavaScript Day 10
+#+OPTIONS: toc:nil
+#+AUTHOR: Cameron Gose
+#+REVEAL_THEME: solarized
+
+* Agenda
+- Final Project - Info - Presentations
+- Storing Data (In Browser)
+- Daily Challenge
+- Timers
+* Final Project
+- Post your final-project link in your class slack channel
+- Keep your presentation to 3 minutes
+- Share your process and experience with the code
+- What did you struggle with? How did you resolve it?
+- We will open for questions after each presentation
+* Storing Data
+- Persist data in browser
+- Useful for keeping information pertaining to the web application
+- Can save from making additional API calls
+- Can keep data on page refresh
+- Save partially filled forms
+- etc...
+** Web Storage API
+- API that allows for storing data in the browser
+- Data is stored as key value pairs
+- Provides two properties sessionStorage and localStorage
+** Storage Options
+- Session Storage
+- Local Storage
+*** Session Storage
+- Stores data only for session
+    - As long as browser is open
+    - Includes page reloads and restores
+- Limit of ~ 5MB (May differ from different browsers)
+*** Local Storage
+- Similar to Session Storage but persists even if browser is closed
+- Stores data with no expiration data
+- Cleared only through JavaScript or clearing browser cache and local data
+- About the same storage limit
+*** Why?
+- Recover form data on browser crash
+- Keep data that doesn't change often like a cache
+- Save API calls
+*** Best Options?
+- Storing form data that does not hold sensitive information?
+- Holding data that doesn't change often?
+- Holding data that may change fairly often?
+- Storing form data that may contain sensitive information?
+** Adding Storage
+- Lets add storage to the car form example
+* Daily Challenge
+- Create a new codepen
+- Build a form for users to create an account
+- You will need
+  - Username field*
+  - Password field*
+  - Repeat Password field* (Verify password)
+  - "Create Account" button
+  - *required fields
+- Disable the "Create Account" button until all fields are completed
+- When the users clicks "Create Account", check if the passwords match
+- If all checks pass, store the user's information
+- console.log the username and password
+- BONUS: Display an error if the passwords don't match
+** Daily Challenge Review
+- Questions?
+* Timers
+** Timers
+- setTimout()
+  - Sets a timer then executes function
+- setInterval()
+  - Continuously sets executes a function at a given interval
+- setImmediate()
+  - Used to break up long running operations and run a callback function
+  - Do not use in production. Not standard
+- clearTimeout()
+  - cancels a previously called setTimeout
+- clearInterval()
+  - cancels a previously called setInterval
+- clearImmediate()
+    - clears setImmerdiate() call
+    - Non-standard
+** Timers
+- Not exact
+- Asynchronous
+- "this" can fall out of scope
+** Timers - Example
+
+* Final Project
+- Keep working on it.

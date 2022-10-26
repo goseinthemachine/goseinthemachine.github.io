@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Intro to JavaScript Day 5</title>
+<meta name="author" content="Cameron Gose"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Intro to JavaScript Day 5</h1><h2 class="author">Cameron Gose</h2><p class="date">Created: 2021-11-14 Sun 23:37</p>
+</section>
+
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> For Today</h2>
+<ul>
+<li>Take Home Review</li>
+<li>Functions</li>
+<li>Daily Challenge</li>
+<li>Method vs Function</li>
+<li>Scopes</li>
+<li>Take Home Challenge</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> Take Home Review</h2>
+<ul>
+<li>Questions</li>
+<li><a href="https://codepen.io/rockygg/pen/MWyMyqe?editors=0010">Link to Take Home</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> Functions</h2>
+<ul>
+<li>What are they</li>
+
+</ul>
+
+</section>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1.</span> Functions</h3>
+<ul>
+<li>How do you make one?</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">// </span><span style="color: #525252;">To declare a function</span>
+<span style="color: #51afef;">function</span> <span style="color: #c678dd;">functionName</span>(<span style="color: #dcaeea;">param1</span>, <span style="color: #dcaeea;">param2</span>, <span style="color: #dcaeea;">param3</span>, ... <span style="color: #dcaeea;">paramN</span>){
+    console.log(<span style="color: #99bb66;">`${param1} ${param2} ${param3}`</span>)
+}
+</pre>
+</div>
+
+</section>
+<section id="slide-3-2">
+<h3 id="3-2"><span class="section-number-3">3.2.</span> Functions - Parameters</h3>
+<ul>
+<li>What can be a parameter
+<ul>
+<li>anything that resolves to a value</li>
+
+</ul></li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">function</span> <span style="color: #c678dd;">alertHello</span>(<span style="color: #dcaeea;">name</span>) {
+    alert(<span style="color: #99bb66;">`Hello ${name}`</span>)
+}
+
+alertHello(prompt(<span style="color: #99bb66;">"What is your name"</span>))
+</pre>
+</div>
+</section>
+<section id="slide-3-3">
+<h3 id="3-3"><span class="section-number-3">3.3.</span> Functions - Parameters</h3>
+<ul>
+<li>Default values</li>
+<li>Pass by value - primitives only
+<ul>
+<li>string, number, bigint, boolean, undefined, symbol, null</li>
+
+</ul></li>
+<li>Pass by reference - non-primitive values
+<ul>
+<li>Any object or array</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-3-4">
+<h3 id="3-4"><span class="section-number-3">3.4.</span> Functions</h3>
+<ul>
+<li>Why use them?</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">// </span><span style="color: #525252;">This is reuseable</span>
+<span style="color: #51afef;">function</span> <span style="color: #c678dd;">alertErrorMessage</span>(<span style="color: #dcaeea;">message</span>) {
+ alert(<span style="color: #99bb66;">`Error occured: ${message}`</span>)
+}
+
+alertErrorMessage(<span style="color: #99bb66;">"Input was incorrect"</span>)
+</pre>
+</div>
+
+</section>
+<section id="slide-3-5">
+<h3 id="3-5"><span class="section-number-3">3.5.</span> Functions</h3>
+<ul>
+<li>Define using expressions</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">//</span><span style="color: #525252;">Anonymous Function Expression</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">capitalize</span> = <span style="color: #51afef;">function</span>(<span style="color: #dcaeea;">word</span>) {
+    <span style="color: #525252;">// </span><span style="color: #525252;">What is return? Why is it not required?</span>
+    <span style="color: #525252;">// </span><span style="color: #525252;">Why be consistent?</span>
+    <span style="color: #525252;">// </span><span style="color: #525252;">Explain dynamic typing</span>
+    <span style="color: #51afef;">return</span> <span style="color: #99bb66;">`${word[0].toUppercase()}${word.slice(1)}`</span>
+}
+<span style="color: #525252;">// </span><span style="color: #525252;">Why would anyone do this?</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">capitalize</span> = <span style="color: #51afef;">function</span> cap(<span style="color: #dcaeea;">word</span>) {
+    <span style="color: #51afef;">return</span> <span style="color: #99bb66;">`${word[0].toUppercase()}${word.slice(1)}`</span>
+}
+<span style="color: #525252;">// </span><span style="color: #525252;">Arrow function</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">pluralize</span> = (array, word) =&gt; {
+    <span style="color: #51afef;">if</span>(array.length &gt; <span style="color: #dd8844; font-weight: bold;">1</span>) <span style="color: #51afef;">return</span> word;
+    <span style="color: #51afef;">return</span> <span style="color: #99bb66;">`${word}s`</span>;
+}
+</pre>
+</div>
+</section>
+<section id="slide-3-6">
+<h3 id="3-6"><span class="section-number-3">3.6.</span> Functions</h3>
+<ul>
+<li>Whats the difference</li>
+<li>Hoisting
+<ul>
+<li>Function declaration supports this</li>
+<li>Function expressions do not</li>
+
+</ul></li>
+<li>Arrow Methods
+<ul>
+<li>Shouldn&rsquo;t use for methods</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Differences and Limitations</a></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> Daily Challenge</h2>
+<ul>
+<li>Create a new codepen (Create an account if you haven&rsquo;t yet)</li>
+<li>Write a function that accepts a number as an argument</li>
+<li>Alert the user whether the given number is even or odd</li>
+<li>Call your function</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> Method vs Function</h2>
+<ul>
+<li>What&rsquo;s the difference?
+<ul>
+<li><a href="https://www.codecademy.com/articles/fwd-js-methods-functions">Additional reading</a></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> Scope</h2>
+<ul>
+<li>Global vs Local</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">let</span> <span style="color: #dcaeea;">firstName</span> = <span style="color: #99bb66;">"Cameron"</span>
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">lastName</span> = <span style="color: #99bb66;">"Gose"</span>
+
+<span style="color: #51afef;">function</span> <span style="color: #c678dd;">notifyUserName</span>(){
+    <span style="color: #51afef;">const</span> <span style="color: #dcaeea;">fullName</span> = <span style="color: #99bb66;">`${firstName} ${lastName}`</span>
+    alert(fullName)
+}
+
+notifyUserName();
+
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-7">
+<h2 id="7"><span class="section-number-2">7.</span> Take Home Challenge</h2>
+<ul>
+<li>Create new code pen</li>
+<li>Prompt user for a password</li>
+<li>Validate the password using the following rules
+<ul>
+<li>Must be 6-20 characters long</li>
+<li>Must start with a letter</li>
+
+</ul></li>
+
+</ul>
+<ul>
+<li>Alert the user if their password has been accepted or why their password was rejected</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

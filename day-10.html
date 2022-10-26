@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Intro to JavaScript Day 10</title>
+<meta name="author" content="Cameron Gose"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Intro to JavaScript Day 10</h1><h2 class="author">Cameron Gose</h2><p class="date">Created: 2021-12-08 Wed 17:49</p>
+</section>
+
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> Agenda</h2>
+<ul>
+<li>Final Project - Info - Presentations</li>
+<li>Storing Data (In Browser)</li>
+<li>Daily Challenge</li>
+<li>Timers</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> Final Project</h2>
+<ul>
+<li>Post your final-project link in your class slack channel</li>
+<li>Keep your presentation to 3 minutes</li>
+<li>Share your process and experience with the code</li>
+<li>What did you struggle with? How did you resolve it?</li>
+<li>We will open for questions after each presentation</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> Storing Data</h2>
+<ul>
+<li>Persist data in browser</li>
+<li>Useful for keeping information pertaining to the web application</li>
+<li>Can save from making additional API calls</li>
+<li>Can keep data on page refresh</li>
+<li>Save partially filled forms</li>
+<li>etc&#x2026;</li>
+
+</ul>
+</section>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1.</span> Web Storage API</h3>
+<ul>
+<li>API that allows for storing data in the browser</li>
+<li>Data is stored as key value pairs</li>
+<li>Provides two properties sessionStorage and localStorage</li>
+
+</ul>
+</section>
+<section id="slide-3-2">
+<h3 id="3-2"><span class="section-number-3">3.2.</span> Storage Options</h3>
+<ul>
+<li>Session Storage</li>
+<li>Local Storage</li>
+
+</ul>
+</section>
+<section id="slide-3-2-1">
+<h4 id="3-2-1"><span class="section-number-4">3.2.1.</span> Session Storage</h4>
+<ul>
+<li>Stores data only for session
+<ul>
+<li>As long as browser is open</li>
+<li>Includes page reloads and restores</li>
+
+</ul></li>
+<li>Limit of ~ 5MB (May differ from different browsers)</li>
+
+</ul>
+</section>
+<section id="slide-3-2-2">
+<h4 id="3-2-2"><span class="section-number-4">3.2.2.</span> Local Storage</h4>
+<ul>
+<li>Similar to Session Storage but persists even if browser is closed</li>
+<li>Stores data with no expiration data</li>
+<li>Cleared only through JavaScript or clearing browser cache and local data</li>
+<li>About the same storage limit</li>
+
+</ul>
+</section>
+<section id="slide-3-2-3">
+<h4 id="3-2-3"><span class="section-number-4">3.2.3.</span> Why?</h4>
+<ul>
+<li>Recover form data on browser crash</li>
+<li>Keep data that doesn&rsquo;t change often like a cache</li>
+<li>Save API calls</li>
+
+</ul>
+</section>
+<section id="slide-3-2-4">
+<h4 id="3-2-4"><span class="section-number-4">3.2.4.</span> Best Options?</h4>
+<ul>
+<li>Storing form data that does not hold sensitive information?</li>
+<li>Holding data that doesn&rsquo;t change often?</li>
+<li>Holding data that may change fairly often?</li>
+<li>Storing form data that may contain sensitive information?</li>
+
+</ul>
+</section>
+<section id="slide-3-3">
+<h3 id="3-3"><span class="section-number-3">3.3.</span> Adding Storage</h3>
+<ul>
+<li>Lets add storage to the car form example</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> Daily Challenge</h2>
+<ul>
+<li>Create a new codepen</li>
+<li>Build a form for users to create an account</li>
+<li>You will need
+<ul>
+<li>Username field*</li>
+<li>Password field*</li>
+<li>Repeat Password field* (Verify password)</li>
+<li>&ldquo;Create Account&rdquo; button</li>
+<li>*required fields</li>
+
+</ul></li>
+<li>Disable the &ldquo;Create Account&rdquo; button until all fields are completed</li>
+<li>When the users clicks &ldquo;Create Account&rdquo;, check if the passwords match</li>
+<li>If all checks pass, store the user&rsquo;s information</li>
+<li>console.log the username and password</li>
+<li>BONUS: Display an error if the passwords don&rsquo;t match</li>
+
+</ul>
+</section>
+<section id="slide-4-1">
+<h3 id="4-1"><span class="section-number-3">4.1.</span> Daily Challenge Review</h3>
+<ul>
+<li>Questions?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> Timers</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+</section>
+<section id="slide-5-1">
+<h3 id="5-1"><span class="section-number-3">5.1.</span> Timers</h3>
+<ul>
+<li>setTimout()
+<ul>
+<li>Sets a timer then executes function</li>
+
+</ul></li>
+<li>setInterval()
+<ul>
+<li>Continuously sets executes a function at a given interval</li>
+
+</ul></li>
+<li>setImmediate()
+<ul>
+<li>Used to break up long running operations and run a callback function</li>
+<li>Do not use in production. Not standard</li>
+
+</ul></li>
+<li>clearTimeout()
+<ul>
+<li>cancels a previously called setTimeout</li>
+
+</ul></li>
+<li>clearInterval()
+<ul>
+<li>cancels a previously called setInterval</li>
+
+</ul></li>
+<li>clearImmediate()
+<ul>
+<li>clears setImmerdiate() call</li>
+<li>Non-standard</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-5-2">
+<h3 id="5-2"><span class="section-number-3">5.2.</span> Timers</h3>
+<ul>
+<li>Not exact</li>
+<li>Asynchronous</li>
+<li>&ldquo;this&rdquo; can fall out of scope</li>
+
+</ul>
+</section>
+<section id="slide-5-3">
+<h3 id="5-3"><span class="section-number-3">5.3.</span> Timers - Example</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> Final Project</h2>
+<ul>
+<li>Keep working on it.</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

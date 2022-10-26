@@ -1,0 +1,136 @@
+#+TITLE: Intro to JavaScript Day 4
+#+OPTIONS: toc:nil
+#+AUTHOR: Cameron Gose
+#+REVEAL_THEME: solarized
+
+* Take Home Review
+-[[https://codepen.io/GeekwiseAcademy/pen/jOqRgPv?editors=0010][ Code Pen]]
+
+* Last Time
+- Formatting dates
+- JavaScript Library Moment.JS
+- [[https://dockyard.com/blog/2020/02/14/you-probably-don-t-need-moment-js-anymore][Additional Reading]]
+#+BEGIN_SRC javascript
+new Date('2019-02-19T06:00:00Z').toLocaleDateString(
+  'en-gb',
+  {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }
+); // 18 February 2019
+#+END_SRC
+
+* Control Flow
+
+* Controlling the Flow
+- If / Else
+- Switch Statement
+- Ternary Operators
+
+* IF / ELSE
+#+BEGIN_SRC javascript
+if (condition) {
+   statement1
+} else {
+   statement2
+}
+#+END_SRC
+
+** IF / ELSE
+- Condition
+  - an expression that is truthy || falsy
+- Expression
+  - valid colde that resolves to a value
+  - Can be almost anything
+- Statement
+  - code path executed if condition is truthy
+
+** IF / ELSE
+- Else If
+- Comparison Operators
+  - Difference between equal and strict equal
+  - Strict equal
+  - Strict not equal
+  - Greater Than
+  - Less Than
+  - Greater Than or equal to
+  - Less Than or equal to
+
+* Truthy and Falsy
+- Falsy
+    - False
+    - 0
+    - Empty string
+    - Null
+    - Undefined
+    - NaN
+- Truthy
+    - Everything else
+
+* Logical Operators
+- And
+- Or
+- Not
+
+* Now What
+- Build a small game
+
+* Switch Statement
+#+BEGIN_SRC javascript
+switch (expression) {
+  case value1:
+    //Statements executed when the
+    //result of expression matches value1
+    [break;]
+  case value2:
+    //Statements executed when the
+    //result of expression matches value2
+    [break;]
+  ...
+  case valueN:
+    //Statements executed when the
+    //result of expression matches valueN
+    [break;]
+  [default:
+    //Statements executed when none of
+    //the values match the value of the expression
+    [break;]]
+}
+#+END_SRC
+
+** Switch Statement
+- Examples
+
+* Now What
+- Reverse the roles
+
+* Conditional (Ternary) Operator
+#+BEGIN_SRC javascript
+condition ? exprIfTrue : exprIfFalse
+#+END_SRC
+** Conditional (Ternary) Operator
+- Examples
+
+* Daily Challenge
+-[[https://codepen.io/rockygg/pen/MWyMyqe?editors=0010ii][ Another Code Pen Challenge]]
+* Daily Challenge
+ - Questions
+* Edge Cases
+- Watch out for them
+- Can break your applications
+- Think about outside intended use cases
+- 0, null, undefined, empty strings
+- [[https://codepen.io/rockygg/pen/MWyMyqe?editors=0010][Additional Reading]]
+
+* Debugging
+- If you can have someone else look at your code
+- Console.log is your friend.
+- Also you can use debugger
+- Get comortable reading errors
+- Get comfortable reading documentation
+- Commit your code in smaller chunks of working functionality
+- [[https://blog.hartleybrody.com/debugging-code-beginner/][Additional Reading]]
+
+* Take Home
+- At the bottom of your daily challenge

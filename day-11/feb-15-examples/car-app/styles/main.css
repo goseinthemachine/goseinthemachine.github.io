@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.car {
+    flex-direction: column-reverse;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid black;
+}
+form {
+    margin: 10px 0;
+}
+.form-field {
+    display: flex;
+    margin: 5px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 235px;
+}

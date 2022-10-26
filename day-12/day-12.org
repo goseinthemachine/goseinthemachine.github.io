@@ -1,0 +1,41 @@
+#+TITLE: Intro to JavaScript Day 12
+#+OPTIONS: toc:nil
+#+AUTHOR: Cameron Gose
+#+REVEAL_THEME: solarized
+
+* Agenda
+- Presentation Prep
+- Presentations
+- IIFE
+- Maybe something else if time
+* Presentation Prep
+- Zoom link shared with everyone in Bitwise
+- May have some spectators
+- Any help or questions?
+* Presentation Guidelines
+- Post your final-project link in your class slack channel
+- Keep your presentation to 3 minutes
+- Share your process and experience with the code
+- What did you struggle with? How did you resolve it?
+- We will open for questions after each presentation
+* Presentations
+* IIFE
+- Imediately-Invoked Function Expressions
+- What the heck?
+** IIFE
+- Uses functions to encapsulate data
+- Keeps variables from polluting global scope
+- This was used because of the scope of `var`
+- Example
+** IIFE
+- Can be used to lock state
+- Example
+** IIFE
+- Can use to group like functionality together
+- Module Pattern
+- Example
+** IIFE
+- May not need anymore
+- Good to know
+- const and let allow blocked scoped variables
+- JavaScript modules

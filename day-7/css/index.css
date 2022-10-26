@@ -1,0 +1,13 @@
+table { 
+    border-collapse: collapse;
+    margin: 10px auto;
+} 
+
+td img {
+    max-height: 100px;
+}
+
+.warning {
+    background-color: rgb(248, 31, 11);
+    color: white;
+}

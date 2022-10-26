@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Intro to JavaScript Day 11</title>
+<meta name="author" content="Cameron Gose"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Intro to JavaScript Day 11</h1><h2 class="author">Cameron Gose</h2><p class="date">Created: 2021-12-13 Mon 10:13</p>
+</section>
+
+
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> Agenda</h2>
+<ul>
+<li>Regular Expressions</li>
+<li>Daily Challenge</li>
+<li>Modules</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> Final Assignment</h2>
+<ul>
+<li>Any Questions?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> Regular Expressions (RegEx)</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1.</span> Regular Expressions</h3>
+<ul>
+<li>Patterns to match character combinations</li>
+<li><a href="http://www.ex-parrot.com/~pdw/Mail-RFC822-Address.html">Seems simple enough right?</a></li>
+
+</ul>
+</section>
+<section id="slide-3-2">
+<h3 id="3-2"><span class="section-number-3">3.2.</span> Regular Expressions</h3>
+<blockquote>
+<p>
+Some people, when confronted with a problem, think &ldquo;I know, I&rsquo;ll use regular expressions.&rdquo; Now they have two problems.
+</p>
+</blockquote>
+<blockquote>
+<p>
+Pros:
+</p>
+
+<p>
+Regular Expressions are an insanely powerful, terse programming language that can perform powerful operations in text matching, given a correct expression
+</p>
+
+<p>
+Cons:
+</p>
+
+<p>
+Regular Expressions are an insanely powerful, terse programming language that can perform powerful operations in text matching, given a correct expression
+</p>
+</blockquote>
+</section>
+<section id="slide-3-3">
+<h3 id="3-3"><span class="section-number-3">3.3.</span> Regular Expressions</h3>
+<ul>
+<li>Learn regex, carries over to any language</li>
+<li>Fastest way to match patterns in text</li>
+<li>Super useful</li>
+
+</ul>
+</section>
+<section id="slide-3-4">
+<h3 id="3-4"><span class="section-number-3">3.4.</span> Regular Expressions</h3>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">//</span><span style="color: #525252;">Literal</span>
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">regex</span> = <span style="color: #99bb66;">/ab+c/</span>
+<span style="color: #51afef;">let</span> <span style="color: #dcaeea;">regex</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">RegEx</span>(<span style="color: #99bb66;">/ab+c/</span>)
+</pre>
+</div>
+</section>
+<section id="slide-3-5">
+<h3 id="3-5"><span class="section-number-3">3.5.</span> Regular Expressions</h3>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">ssnRegex</span> = <span style="color: #51afef;">new</span>  <span style="color: #ECBE7B;">RegExp</span>(<span style="color: #99bb66;">/^\d{3}-\d{2}-\d{4}$/</span>);
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">phoneRegex</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">RegExp</span>(<span style="color: #99bb66;">/^\d{3}\d{3}-\d{4}$/</span>);
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">userName</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">RegExp</span>(<span style="color: #99bb66;">/^[A-Za-z0-9_]{5,16}$/</span>);
+ssnRegex.exec(<span style="color: #99bb66;">'222-22-2222'</span>);
+<span style="color: #99bb66;">"222-22-2222"</span>.match(ssnRegex);
+ssnRegex.test(<span style="color: #99bb66;">'222-22-2222'</span>);
+ssnRegex.test(<span style="color: #99bb66;">'222-222-2222'</span>);
+<span style="color: #99bb66;">"222-222-2222"</span>.replace(phoneRegex, <span style="color: #99bb66;">'123-123-1234'</span>)
+<span style="color: #99bb66;">"My number is 222-222-2222"</span>.search(phoneRegex);
+<span style="color: #99bb66;">"Here is my number, 222-222-2222, call me."</span>.split(phoneRegex)
+</pre>
+</div>
+</section>
+<section id="slide-3-6">
+<h3 id="3-6"><span class="section-number-3">3.6.</span> Regular Expressions - Metacharacters</h3>
+<ul>
+<li>Line Anchors - ^&#x2026;$
+<ul>
+<li>^ anchors to start of the line</li>
+<li>$ anchors to the end of the line</li>
+
+</ul></li>
+<li>Character Class - [&#x2026;]
+<ul>
+<li>matches any character within the brackets</li>
+<li>Can negate this using [^&#x2026;]</li>
+
+</ul></li>
+<li>Range - &rsquo;-&rsquo;
+<ul>
+<li>Can oonly be used within Character Class</li>
+<li>[A-Z]</li>
+
+</ul></li>
+<li>Wildcard - &rsquo;.&rsquo;
+<ul>
+<li>Matches any character</li>
+
+</ul></li>
+<li>Alternation (Or) - &rsquo;|&rsquo;
+<ul>
+<li>Essentially an or operator for RegEx</li>
+
+</ul></li>
+<li>Optional - &rsquo;?&rsquo;
+<ul>
+<li>Marks a character as allowed but not required</li>
+<li>Can think of this as 0 or 1 matches</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-3-7">
+<h3 id="3-7"><span class="section-number-3">3.7.</span> Regular Expressions - Metacharacters</h3>
+<ul>
+<li>Many - &rsquo;+&rsquo;, &rsquo;*&rsquo;
+<ul>
+<li>+ means 1 or more</li>
+<li>* means any
+<ul>
+<li>* is a combination of ? and +</li>
+
+</ul></li>
+
+</ul></li>
+<li>Interval &rsquo;{min, max}&rsquo;
+<ul>
+<li>Specify min and max number of matches</li>
+
+</ul></li>
+<li>Escape Character &rsquo;\&rsquo;
+<ul>
+<li>Used toe escape metacharacters that have special meaning</li>
+<li>\? \* would allow you to search for ? or * in a string instead of it regex functionality</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-3-8">
+<h3 id="3-8"><span class="section-number-3">3.8.</span> Regular Expressions - Resources</h3>
+<ul>
+<li><a href="https://blog.codinghorror.com/regular-expressions-now-you-have-two-problems/">Coding Horror</a></li>
+<li><a href="http://regex.party/">Regex Party</a></li>
+<li><a href="https://regex101.com/">Regex 101</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">MDN Regular Expressions Guide</a></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> Daily Challenge</h2>
+<ul>
+<li>Using your Day 10 daily challenge codepen
+<ul>
+<li>Use regex to validate that your user&rsquo;s password contains the following:</li>
+<li>Between 6-20 characters</li>
+<li>At least one numeric digit</li>
+<li>At least one uppercase letter</li>
+<li>At least one lowercase letter</li>
+<li>Tip: Test your regex at regexr.com</li>
+<li>Bonus: Display an error message for the user if their password is invalid</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-4-1">
+<h3 id="4-1"><span class="section-number-3">4.1.</span> Daily Challenge - Review</h3>
+<ul>
+<li>Questions</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> Modules</h2>
+<ul>
+<li>JavaScript programs started small</li>
+<li>Became more ambitious</li>
+<li>Needed a way to organize bigger JavaScript applications</li>
+<li>Modules allow splitting programs into separate modules where they can be imported later</li>
+<li>Modern browsers now support this</li>
+
+</ul>
+</section>
+<section id="slide-5-1">
+<h3 id="5-1"><span class="section-number-3">5.1.</span> Modules</h3>
+<ul>
+<li>Modules gives us the ability to export and import</li>
+<li>Can export individual items or export encompassing object</li>
+<li>Can import individual items or all items and give a alias</li>
+<li>Only works within module javascript</li>
+
+</ul>
+</section>
+<section id="slide-5-2">
+<h3 id="5-2"><span class="section-number-3">5.2.</span> Modules</h3>
+<ul>
+<li>Easy to get started</li>
+<li>Add type=&ldquo;module&rdquo; to script tag with main.js src file</li>
+<li>Browsers will automatically load any file imported into main.js</li>
+<li><p>
+Simplifies adding script tags to html
+</p>
+<div class="org-src-container">
+
+<pre class="src src-html">  &lt;<span style="color: #c678dd;">script</span> <span style="color: #dcaeea;">type</span>=<span style="color: #99bb66;">"module"</span> <span style="color: #dcaeea;">src</span>=<span style="color: #99bb66;">"main.js"</span>&gt;&lt;/<span style="color: #c678dd;">script</span>&gt;
+</pre>
+</div></li>
+
+</ul>
+</section>
+<section id="slide-5-3">
+<h3 id="5-3"><span class="section-number-3">5.3.</span> Modules - Refactoring Car App</h3>
+<ul>
+<li>Refactoring application to module can take some consideration</li>
+<li>Example Car Form</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> Final Project</h2>
+<ul>
+<li>Keep working on it</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

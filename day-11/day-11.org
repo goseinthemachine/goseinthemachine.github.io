@@ -1,0 +1,120 @@
+#+TITLE: Intro to JavaScript Day 11
+#+OPTIONS: toc:nil
+#+AUTHOR: Cameron Gose
+#+REVEAL_THEME: solarized
+
+
+* Agenda
+- Regular Expressions
+- Daily Challenge
+- Modules
+* Final Assignment
+- Any Questions?
+* Regular Expressions (RegEx)
+** Regular Expressions
+- Patterns to match character combinations
+- [[http://www.ex-parrot.com/~pdw/Mail-RFC822-Address.html][Seems simple enough right?]]
+** Regular Expressions
+#+BEGIN_QUOTE
+Some people, when confronted with a problem, think "I know, I'll use regular expressions." Now they have two problems.
+#+END_QUOTE
+#+BEGIN_QUOTE
+Pros:
+
+Regular Expressions are an insanely powerful, terse programming language that can perform powerful operations in text matching, given a correct expression
+
+Cons:
+
+Regular Expressions are an insanely powerful, terse programming language that can perform powerful operations in text matching, given a correct expression
+#+END_QUOTE
+** Regular Expressions
+- Learn regex, carries over to any language
+- Fastest way to match patterns in text
+- Super useful
+** Regular Expressions
+#+BEGIN_SRC javascript
+//Literal
+let regex = /ab+c/
+let regex = new RegEx(/ab+c/)
+#+END_SRC
+** Regular Expressions
+#+BEGIN_SRC javascript
+const ssnRegex = new  RegExp(/^\d{3}-\d{2}-\d{4}$/);
+const phoneRegex = new RegExp(/^\d{3}\d{3}-\d{4}$/);
+const userName = new RegExp(/^[A-Za-z0-9_]{5,16}$/);
+ssnRegex.exec('222-22-2222');
+"222-22-2222".match(ssnRegex);
+ssnRegex.test('222-22-2222');
+ssnRegex.test('222-222-2222');
+"222-222-2222".replace(phoneRegex, '123-123-1234')
+"My number is 222-222-2222".search(phoneRegex);
+"Here is my number, 222-222-2222, call me.".split(phoneRegex)
+#+END_SRC
+** Regular Expressions - Metacharacters
+- Line Anchors - ^...$
+  - ^ anchors to start of the line
+  - $ anchors to the end of the line
+- Character Class - [...]
+  - matches any character within the brackets
+  - Can negate this using [^...]
+- Range - '-'
+  - Can oonly be used within Character Class
+  - [A-Z]
+- Wildcard - '.'
+  - Matches any character
+- Alternation (Or) - '|'
+  - Essentially an or operator for RegEx
+- Optional - '?'
+  - Marks a character as allowed but not required
+  - Can think of this as 0 or 1 matches
+** Regular Expressions - Metacharacters
+- Many - '+', '*'
+  - + means 1 or more
+  - * means any
+    - * is a combination of ? and +
+- Interval '{min, max}'
+  - Specify min and max number of matches
+- Escape Character '\'
+  - Used toe escape metacharacters that have special meaning
+  - \? \* would allow you to search for ? or * in a string instead of it regex functionality
+** Regular Expressions - Resources
+- [[https://blog.codinghorror.com/regular-expressions-now-you-have-two-problems/][Coding Horror]]
+- [[http://regex.party/][Regex Party]]
+- [[https://regex101.com/][Regex 101]]
+- [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions][MDN Regular Expressions Guide]]
+* Daily Challenge
+- Using your Day 10 daily challenge codepen
+  - Use regex to validate that your user's password contains the following:
+  - Between 6-20 characters
+  - At least one numeric digit
+  - At least one uppercase letter
+  - At least one lowercase letter
+  - Tip: Test your regex at regexr.com
+  - Bonus: Display an error message for the user if their password is invalid
+** Daily Challenge - Review
+- Questions
+
+* Modules
+- JavaScript programs started small
+- Became more ambitious
+- Needed a way to organize bigger JavaScript applications
+- Modules allow splitting programs into separate modules where they can be imported later
+- Modern browsers now support this
+** Modules
+- Modules gives us the ability to export and import
+- Can export individual items or export encompassing object
+- Can import individual items or all items and give a alias
+- Only works within module javascript
+** Modules
+- Easy to get started
+- Add type="module" to script tag with main.js src file
+- Browsers will automatically load any file imported into main.js
+- Simplifies adding script tags to html
+  #+BEGIN_SRC  html
+  <script type="module" src="main.js"></script>
+  #+END_SRC
+** Modules - Refactoring Car App
+- Refactoring application to module can take some consideration
+- Example Car Form
+* Final Project
+- Keep working on it

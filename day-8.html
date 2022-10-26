@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Intro to JavaScript Day 8</title>
+<meta name="author" content="Cameron Gose"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/solarized.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Intro to JavaScript Day 8</h1><h2 class="author">Cameron Gose</h2><p class="date">Created: 2021-11-30 Tue 23:49</p>
+</section>
+
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> Agenda</h2>
+<ul>
+<li>Take Home Review</li>
+<li>Objects</li>
+<li>Daily Challenge</li>
+<li>Classes</li>
+<li>Take Home Challenge</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> Take Home Review</h2>
+<ul>
+<li>Walk through</li>
+
+</ul>
+
+</section>
+<section id="slide-2-1">
+<h3 id="2-1"><span class="section-number-3">2.1.</span> Take Home Review</h3>
+<ul>
+<li>Questions?</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> Objects</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1.</span> Objects - What are they</h3>
+<ul>
+<li>Definition: a value in memory which is referenced by some identifier</li>
+<li>Collection of properties</li>
+
+</ul>
+</section>
+<section id="slide-3-2">
+<h3 id="3-2"><span class="section-number-3">3.2.</span> Objects - Creating</h3>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">// </span><span style="color: #525252;">Object literal syntax</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">animal</span> = {};
+<span style="color: #525252;">// </span><span style="color: #525252;">Object using function constructor</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">Employee</span> = <span style="color: #51afef;">function</span>() {
+
+}
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">employee1</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Employee</span>();
+<span style="color: #525252;">// </span><span style="color: #525252;">Object constructor syntax</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">person</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Object</span>();
+</pre>
+</div>
+</section>
+<section id="slide-3-3">
+<h3 id="3-3"><span class="section-number-3">3.3.</span> Objects - Properties</h3>
+<ul>
+<li>&ldquo;key&rdquo;: &ldquo;value&rdquo; pair</li>
+<li>Defined with a unique key</li>
+<li>Property value can be any type</li>
+<li>You can access values using dot notation</li>
+<li>Can access using square brackets like an array</li>
+
+</ul>
+</section>
+<section id="slide-3-4">
+<h3 id="3-4"><span class="section-number-3">3.4.</span> Objects - Properties</h3>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">// </span><span style="color: #525252;">Object Literal</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">animal</span> = {
+    species: <span style="color: #99bb66;">"Giraffe"</span>,
+    height: <span style="color: #99bb66;">"19ft"</span>,
+    breed: <span style="color: #99bb66;">"Masal Giraffe"</span>,
+    age: <span style="color: #dd8844; font-weight: bold;">15</span>,
+    <span style="color: #c678dd;">alertHeard</span>: <span style="color: #51afef;">function</span>() {
+        alert(<span style="color: #99bb66;">"Lion is here!"</span>)
+    },
+    <span style="color: #c678dd;">run</span>: <span style="color: #51afef;">function</span>() {
+        alert(<span style="color: #99bb66;">"Run away!"</span>)
+    }
+}
+</pre>
+</div>
+</section>
+<section id="slide-3-5">
+<h3 id="3-5"><span class="section-number-3">3.5.</span> Objects - Properties</h3>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">// </span><span style="color: #525252;">Object constructor function</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">Employee</span> = <span style="color: #51afef;">function</span>() {
+  <span style="color: #a9a1e1;">this</span>.name = <span style="color: #99bb66;">"New Employee"</span>;
+  <span style="color: #a9a1e1;">this</span>.number = <span style="color: #99bb66;">"0"</span>;
+  <span style="color: #a9a1e1;">this</span>.position = <span style="color: #99bb66;">"IT Associate"</span>;
+  <span style="color: #a9a1e1;">this</span>.salary = <span style="color: #dd8844; font-weight: bold;">45000</span>;
+  <span style="color: #a9a1e1;">this</span>.helpDesk = <span style="color: #51afef;">function</span>() {
+    alert(<span style="color: #99bb66;">"Have you tried turning it off and on again?"</span>)
+  };
+}
+
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">employee1</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Employee</span>();
+</pre>
+</div>
+</section>
+<section id="slide-3-6">
+<h3 id="3-6"><span class="section-number-3">3.6.</span> Objects - Properties</h3>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #525252;">// </span><span style="color: #525252;">Object constructor</span>
+<span style="color: #51afef;">const</span> <span style="color: #dcaeea;">person</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">Object</span>();
+person.name = <span style="color: #99bb66;">"John Doe"</span>;
+person.SSN = <span style="color: #99bb66;">"555-55-5555"</span>;
+person.phone = <span style="color: #99bb66;">"555-555-5555"</span>;
+person[<span style="color: #99bb66;">"address"</span>] = <span style="color: #99bb66;">"1234 Somewhere Ave"</span>;
+<span style="color: #525252;">// </span><span style="color: #525252;">Any object can be extended with dot notation</span>
+
+</pre>
+</div>
+
+</section>
+<section id="slide-3-7">
+<h3 id="3-7"><span class="section-number-3">3.7.</span> Objects - Useful Methods and Operators</h3>
+<ul>
+<li>Assign Method - copies values to another object</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #51afef;">const</span> <span style="color: #dcaeea;">giraffe</span> = {};
+<span style="color: #525252;">// </span><span style="color: #525252;">spread operator</span>
+Object.assign(giraffe, {...animal});
+</pre>
+</div>
+</section>
+<section id="slide-3-8">
+<h3 id="3-8"><span class="section-number-3">3.8.</span> Objects - Prototypes</h3>
+<ul>
+<li>JavaScript Object Oriented Language</li>
+<li>Originally based on prototypes and not classes</li>
+<li>Can be used to extend objects</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model">Class-based vs Prototype-based languages</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> Daily Challenge</h2>
+<ul>
+<li>Create a new code pen</li>
+<li>Congrats you have a new dog
+<ul>
+<li>Create an object named &ldquo;dog&rdquo;</li>
+<li>Add a property to your dog object called &ldquo;name&rdquo; and assign a name</li>
+<li>Add two more properties to descript your dog</li>
+<li>Now teach it some tricks
+<ul>
+<li>Give your dog a property called &ldquo;speak&rdquo; and assign a function that will alert woof</li>
+<li>Add another method to teach you dog one more trick</li>
+
+</ul></li>
+<li>BONUS: Display your dog object values in HTML</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-4-1">
+<h3 id="4-1"><span class="section-number-3">4.1.</span> Daily Challenge</h3>
+<ul>
+<li>Questions?</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> Classes</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+</section>
+<section id="slide-5-1">
+<h3 id="5-1"><span class="section-number-3">5.1.</span> Classes</h3>
+<ul>
+<li>Blueprint for creating objects</li>
+<li>Classes are great way to organize functionality</li>
+<li>Classes can help map real world objects to code</li>
+
+</ul>
+</section>
+<section id="slide-5-2">
+<h3 id="5-2"><span class="section-number-3">5.2.</span> Classes</h3>
+<ul>
+<li>Body of class executed in strict mode</li>
+<li>Constructor method is special method for creating objects</li>
+<li>new keyword to create instance of class</li>
+<li>Built on top of prototypes</li>
+<li>&ldquo;class&rdquo; notation is a special function</li>
+<li>Can use class declaration or expression</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> Take Home Challenge</h2>
+<ul>
+<li>Create a new code pen
+<ul>
+<li>You&rsquo;re now a car manufacturer and need to create cars to build your inventory</li>
+<li>Create a class called &ldquo;car&rdquo;</li>
+<li>Add some properties like &ldquo;make&rdquo;, &ldquo;model&rdquo;, &ldquo;year&rdquo;, &ldquo;color&rdquo;, etc</li>
+<li>User your car class to construct 4 (or more) different cars</li>
+<li>console.log your code so you can see the results!</li>
+<li>BONUS: Display the details for each of your cars in your HTML</li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

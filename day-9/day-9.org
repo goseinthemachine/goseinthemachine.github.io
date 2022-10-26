@@ -1,0 +1,142 @@
+#+TITLE: Intro to JavaScript Day 9
+#+OPTIONS: toc:nil
+#+AUTHOR: Cameron Gose
+#+REVEAL_THEME: solarized
+
+* Agenda
+- Take Home Review
+- Forms
+- Daily Challenge
+- HTTP Requests
+- Take Home Challenge
+* Take Home Review
+- Overview
+** Take Home Review
+- Questions
+* Forms
+** Forms - Attributes
+*** Forms - Attributes - name
+- Give a name to the form
+*** Forms - Attributes - action
+- URL form targets when form is submitted
+- Older way of submitting form
+- Simple and still works
+*** Forms - Attributes - method
+- Supports two request methods
+  - GET
+  - POST
+** Forms - Elements
+*** Forms - Elements - Input
+- Most used element
+- Almost every form will use this
+**** Forms - Input - Text
+- Allows free typed text input
+**** Forms - Input - Radio
+- Allows for one selection out of many options
+- People inappropriately use checkboxes for this
+**** Forms - Input - Checkbox
+- Allows for 0-n selctions out of many options
+- Do not use this for Radio functionality
+**** Forms - Input - Submit
+- Submits the form
+- Submits form data to value in action using the value in method attribute
+**** Forms - Input - Others
+- email
+- password
+- tel
+- file
+- [[https://www.w3schools.com/html/html_form_input_types.asp][and more]]
+*** Forms - Elements - Label
+- Defines a label for form elements
+- Important for screen-readers
+- Helps users click on control
+- for attribute = id of matching element
+*** Forms - Elements - Button
+- Makes a button
+- Could for handling events
+- Can use type attribute
+    - Submit
+    - Button
+*** Forms - Elements - Select/Option
+- Adds a drop down selection box
+- Each item in dropdown is defined by an option
+- Can add multiple attribute to allow multi-select
+*** Forms - Elements - TextArea
+- Multi line text field
+- Can use rows and cols attributes to set size
+  - or you can just use CSS
+** Forms - JavaScript
+- Sometimes need to prevent form default behavior
+- event.preventDefault()
+  - Can be used to stop events
+    - Not all events are preventable
+  - Used on forms often
+  - Now you have to handle it in JavaScript
+** Forms - Examples
+* Daily Challenge
+- Create a new codepen
+- Create a contact form with a submit button
+- Using what you learned about DOM manipulation, create a submit function that will do the following:
+  - Grab the values entered by the user
+  - Hide the form
+  - Display the information submitted by the user
+** Daily Challenge - Review
+- My implementation
+** Daily Challenge - Review
+- Any Questions?
+* HTTP Requests
+** HTTP Requests
+- HTTP Protocols determine wheter data is coming from client or server
+- Each one signifies a specific use case
+  - Some not enforced just considered standard practice
+- Ways of passing data to server from client
+  - Query Params
+  - Route Ids
+  - Form data
+  - Headers
+  - Body
+** HTTP Responses
+- Each HTTP Request has a Response from the server
+- Each response has a status code
+  - 1xx Information
+  - 2xx Successful
+  - 3xx Redirection
+  - 4xx Client error
+  - 5xx Server error
+  - [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Status][Status Codes]]
+** HTTP Protocols - GET
+- Used for retrieving data from server
+  - Get a list of items
+    - Also used to filter list of items
+  - Get single item details
+- Can pass data using query params
+- Servers don't usually accept a body for GET Requests
+** HTTP Protocols - PUT
+- Used to update entire item on server
+- Replacing a file, image, or data
+** HTTP Protocols - PATCH
+- Used to signify partial update of data on server
+    - Will update fields passed to server that match expected object
+    - Can be all
+** HTTP Protocols - POST
+- Used for Creating new items on server
+- Was previously used for everything
+    - Remember: Forms methods GET and POST
+- Will run into older code with only GET and POST
+** HTTP Protocols - DELETE
+- As the protocols suggests it deletes items from server
+* Take Home Challenge
+- Start working on your final project:
+  - Your final project will be to build a magic 8 ball app
+  - Create a new repository named: magic8ball
+  - Clone your repository
+  - Add your index file, stylesheet, script file and the provided 8ball images
+** Take Home Challenge - Objectives
+- Create input field for users to ask a question
+- Create a label for your input field telling your user to "Ask me anything!"
+- Create an "ask" button (this will run the function that you will insert the images into using javascript)
+- Create a div with an id of "answers" that you will insert the images into using js
+- Creat an "ask" function that when clicked, will choose as random 8ball image and insert it into your "answers" div
+- Replace the input field with the user's question when displaying the answer
+- Style your page any way you like
+- Activate Github Pages for your project

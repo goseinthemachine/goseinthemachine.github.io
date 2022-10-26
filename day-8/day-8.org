@@ -1,0 +1,130 @@
+#+TITLE: Intro to JavaScript Day 8
+#+OPTIONS: toc:nil
+#+AUTHOR: Cameron Gose
+#+REVEAL_THEME: solarized
+
+* Agenda
+- Take Home Review
+- Objects
+- Daily Challenge
+- Classes
+- Take Home Challenge
+
+* Take Home Review
+ - Walk through
+
+** Take Home Review
+ - Questions?
+
+* Objects
+** Objects - What are they
+- Definition: a value in memory which is referenced by some identifier
+- Collection of properties
+** Objects - Creating
+#+BEGIN_SRC  javascript
+// Object literal syntax
+const animal = {};
+// Object using function constructor
+const Employee = function() {
+
+}
+const employee1 = new Employee();
+// Object constructor syntax
+const person = new Object();
+#+END_SRC
+** Objects - Properties
+- "key": "value" pair
+- Defined with a unique key
+- Property value can be any type
+- You can access values using dot notation
+- Can access using square brackets like an array
+** Objects - Properties
+#+BEGIN_SRC javascript
+// Object Literal
+const animal = {
+    species: "Giraffe",
+    height: "19ft",
+    breed: "Masal Giraffe",
+    age: 15,
+    alertHeard: function() {
+        alert("Lion is here!")
+    },
+    run: function() {
+        alert("Run away!")
+    }
+}
+#+END_SRC
+** Objects - Properties
+#+BEGIN_SRC javascript
+// Object constructor function
+const Employee = function() {
+  this.name = "New Employee";
+  this.number = "0";
+  this.position = "IT Associate";
+  this.salary = 45000;
+  this.helpDesk = function() {
+    alert("Have you tried turning it off and on again?")
+  };
+}
+
+const employee1 = new Employee();
+#+END_SRC
+** Objects - Properties
+#+BEGIN_SRC javascript
+// Object constructor
+const person = new Object();
+person.name = "John Doe";
+person.SSN = "555-55-5555";
+person.phone = "555-555-5555";
+person["address"] = "1234 Somewhere Ave";
+// Any object can be extended with dot notation
+
+#+END_SRC
+
+** Objects - Useful Methods and Operators
+- Assign Method - copies values to another object
+#+BEGIN_SRC javascript
+const giraffe = {};
+// spread operator
+Object.assign(giraffe, {...animal});
+#+END_SRC
+** Objects - Prototypes
+- JavaScript Object Oriented Language
+- Originally based on prototypes and not classes
+- Can be used to extend objects
+- [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model][Class-based vs Prototype-based languages]]
+
+* Daily Challenge
+- Create a new code pen
+- Congrats you have a new dog
+  - Create an object named "dog"
+  - Add a property to your dog object called "name" and assign a name
+  - Add two more properties to descript your dog
+  - Now teach it some tricks
+    - Give your dog a property called "speak" and assign a function that will alert woof
+    - Add another method to teach you dog one more trick
+  - BONUS: Display your dog object values in HTML
+
+** Daily Challenge
+- Questions?
+
+* Classes
+** Classes
+- Blueprint for creating objects
+- Classes are great way to organize functionality
+- Classes can help map real world objects to code
+** Classes
+- Body of class executed in strict mode
+- Constructor method is special method for creating objects
+- new keyword to create instance of class
+- Built on top of prototypes
+- "class" notation is a special function
+- Can use class declaration or expression
+* Take Home Challenge
+- Create a new code pen
+  - You're now a car manufacturer and need to create cars to build your inventory
+  - Create a class called "car"
+  - Add some properties like "make", "model", "year", "color", etc
+  - User your car class to construct 4 (or more) different cars
+  - console.log your code so you can see the results!
+  - BONUS: Display the details for each of your cars in your HTML
