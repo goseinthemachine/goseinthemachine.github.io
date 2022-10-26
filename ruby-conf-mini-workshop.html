@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Game from Start to Published!</title>
+<meta name="author" content="(Cameron Gose)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/moon.css" id="theme"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/base16/windows-high-contrast.min.css"/></head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Game from Start to Published!</h1><h2 class="author">Cameron Gose</h2>
+</section>
+
+<section>
+<section id="slide-org00f2f1c">
+<h2 id="org00f2f1c"><span class="section-number-2">1.</span> Introduction</h2>
+<ul>
+<li>Insert picture of me with social media stuff I guess</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org2e0064f">
+<h2 id="org2e0064f"><span class="section-number-2">2.</span> DragonRuby GTK</h2>
+<ul>
+<li>What is it?</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgcf6758e">
+<h2 id="orgcf6758e"><span class="section-number-2">3.</span> How do you get it</h2>
+<ul>
+<li>There are a couple of ways</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgfba6025">
+<h2 id="orgfba6025"><span class="section-number-2">4.</span> Requirements</h2>
+<ul>
+<li>Pick your IDE/Text Editor that supports Ruby</li>
+<li>DragonRuby GTK</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org63bd7b5">
+<h2 id="org63bd7b5"><span class="section-number-2">5.</span> Initial Setup</h2>
+<ul>
+<li>clone repo <a href="https://github.com/goseinthemachine/2022-ruby-conf-workshop">https://github.com/goseinthemachine/2022-ruby-conf-workshop</a></li>
+<li>go into the folder</li>
+<li>In the terminal run the following</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre   ><code class="bash" ># For Mac or Linux
+./dragonruby
+# For Windows
+dragonruby
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org3df5d22">
+<h2 id="org3df5d22"><span class="section-number-2">6.</span> Let&rsquo;s Publish</h2>
+<ul>
+<li>Go to <a href="https://itch.io">itch.io</a></li>
+<li>Create an account if you haven&rsquo;t already</li>
+
+</ul>
+</section>
+<section id="slide-org95d66bb">
+<h3 id="org95d66bb"><span class="section-number-3">6.1.</span> Create the Landing Page</h3>
+<ul>
+<li>Go to <a href="https://itch.io/game/new">https://itch.io/game/new</a></li>
+<li>Add a title</li>
+<li>Add the project url</li>
+<li>Kind of project change to HTML</li>
+
+</ul>
+</section>
+<section id="slide-orgc4cb1d2">
+<h3 id="orgc4cb1d2"><span class="section-number-3">6.2.</span> Update Game Metadata</h3>
+<p>
+In 2022-ruby-conf-workshop/mygame/metadata/game<sub>metadata</sub> insert the following
+</p>
+<pre  class="example" >
+devid=your_itch_io_user_name
+devtitle=Your Name
+gameid=ruby_conf_mini
+gametitle=Ruby Conf Mini Workshop
+version=0.1
+</pre>
+</section>
+<section id="slide-orga01bcf4">
+<h3 id="orga01bcf4"><span class="section-number-3">6.3.</span> Building your game</h3>
+<aside class="notes">
+<p>
+This command needs to be ran in the root of the DragonRuby folder
+mygame is the name of the folder to package up which will be mygame in our example
+This will build all the executables and put them in a build folder in the root of DragonRuby
+</p>
+
+</aside>
+<div class="org-src-container">
+
+<pre   ><code class="bash" >./dragonruby-publish --only-package mygame # mac and linux
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org65d95a1">
+<h2 id="org65d95a1"><span class="section-number-2">7.</span> The Basics</h2>
+<p>
+All following changes will happen in the file 2022-ruby-conf-workshop/mygame/app/main.rb
+</p>
+</section>
+<section id="slide-orgd4bd028">
+<h3 id="orgd4bd028"><span class="section-number-3">7.1.</span> The Loop</h3>
+<aside class="notes">
+<p>
+Every game has a loop that continuously loops over 3 functions
+We&rsquo;ll create a function in our game for each game loop
+</p>
+
+</aside>
+<ul>
+<li>Handling Input</li>
+<li>Updating and Calculating Game State</li>
+<li>Rendering to the Screen</li>
+
+</ul>
+
+</section>
+<section id="slide-orgc3829ac">
+<h3 id="orgc3829ac"><span class="section-number-3">7.2.</span> Handle Input</h3>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" data-line-numbers="2,4"># Inside MAIN.RB
+def handle_input args
+  #Code for handling user input will go here
+end
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org45957f4">
+<h3 id="org45957f4"><span class="section-number-3">7.3.</span> Updating Game State</h3>
+<aside class="notes">
+<p>
+This function will be used to call other functions that will
+update or calculate game state
+</p>
+
+</aside>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" ># Inside MAIN.RB after handle_input
+def update_state args
+  #Code for updating or calculating state will go here
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-orgc24d5b9">
+<h3 id="orgc24d5b9"><span class="section-number-3">7.4.</span> Rendering to the screen</h3>
+<aside class="notes">
+<p>
+This function will be used to call other render functions
+to draw to the game window
+</p>
+
+</aside>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" ># Inside MAIN.RB after update_state
+def render args
+  # Code for rendering will occur here
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-orgc85ce91">
+<h3 id="orgc85ce91"><span class="section-number-3">7.5.</span> Tick</h3>
+<aside class="notes">
+<p>
+We have these 3 functions now where do we put them?
+In DragonRuby GTK there is a function that it looks for in main.rb
+That is the tick function
+The tick function is important it is called 60 times a second
+This ensures a smooth framerate so animations looks smooth
+</p>
+
+</aside>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" data-line-numbers="1,2,3">def tick args # Will contain the GTK environment
+  # What will go here?
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org73c3d7d">
+<h3 id="org73c3d7d"><span class="section-number-3">7.6.</span> Establishing the Loop</h3>
+<aside class="notes">
+<p>
+We&rsquo;ll put the handle<sub>inpute</sub>, render and update<sub>state</sub> functions within tick
+Each of these steps occur every time tick is called and each time that
+happens the game check for user input, figures out what is going on, then
+draws everything to the screen again. This happens every tick 60 times a second.
+</p>
+
+</aside>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def tick args
+  handle_input args
+  update args
+  render args
+end
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgd7f71c4">
+<h2 id="orgd7f71c4"><span class="section-number-2">8.</span> Setting up the scene</h2>
+<aside class="notes">
+<p>
+Now that we have the basics of the game loop defined in our code we can now start to build the game.
+Today we will be building the classic arcade game of snake. In the classic game the snake moves along a grid.
+Lets draw that grid.
+</p>
+
+</aside>
+</section>
+<section id="slide-orgf1f85d6">
+<h3 id="orgf1f85d6"><span class="section-number-3">8.1.</span> Drawing the Grid</h3>
+<aside class="notes">
+<p>
+To draw the grid we need to draw grids from the vertically along the x-axis and horizontally along the y-axis
+</p>
+
+</aside>
+</section>
+<section id="slide-org1ff0afc">
+<h4 id="org1ff0afc"><span class="section-number-4">8.1.1.</span> Setting the Grid Size</h4>
+<aside class="notes">
+<p>
+We need to define how far the grids should be spaced apart. At the top of the file create a constant to hold GRID SIZE to be equal to 20.
+We&rsquo;ll be using GRID
+</p>
+
+</aside>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" data-line-numbers="1|11,12,13">GRID_SIZE = 20
+
+def handle_input args
+
+end
+
+def update args
+
+end
+
+def render_grid args
+
+end
+
+def render args
+  render_grid args
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org8edda9b">
+<h4 id="org8edda9b"><span class="section-number-4">8.1.2.</span> Drawing lines along the X-Axis</h4>
+<aside class="notes">
+<p>
+In render grid we are going to add in some code to draw along the x direction.
+args.grid.x contains the width of the game window which in our case is 1080
+First we&rsquo;ll determine how many lines we need to draw along the x-axis before drawing
+DragonRuby GTK provide a nice way to draw lines
+args.outputs has a collection call lines. If we append to the lines collection a hash that contains x, y, x2, y2 values
+We can draw a line to the screen
+</p>
+
+</aside>
+<p>
+
+</p>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def render_grid args
+  x_axis = args.grid.x / GRID_SIZE
+  x_axis.each_with_index do |x|
+    args.outputs.lines &lt;&lt;
+        {x: x * GRID_SIZE, y: 0, x2: x * GRID_SIZE, y2: args.grid.h}
+  end
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-orgebe0820">
+<h4 id="orgebe0820"><span class="section-number-4">8.1.3.</span> Drawing lines along the Y-Axis</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def render_grid args
+  x_axis = args.grid.w / GRID_SIZE
+  y_axis = args.grid.h / GRID_SIZE
+  x_axis.each_with_index do |x|
+    args.outputs.lines &lt;&lt;
+        {x: x * GRID_SIZE, y: 0, x2: x * GRID_SIZE, y2: args.grid.h}
+  end
+
+  y_axis.each_with_index do |y|
+    args.outputs.lines &lt;&lt;
+      {x: 0, y: y * GRID_SIZE, x2: args.grid.w, y2: y * GRID_SIZE}
+  end
+end
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orge04ba20">
+<h3 id="orge04ba20"><span class="section-number-3">8.2.</span> Drawing the head of the snake</h3>
+<div class="outline-text-3" id="text-8-2">
+</div>
+</section>
+<section id="slide-org8e4a0de">
+<h4 id="org8e4a0de"><span class="section-number-4">8.2.1.</span> Setting up defaults</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def defaults args
+  args.state.head ||=
+    {
+      x: args.grid.w / 2,
+      y: args.grid.h / 2,
+      w: GRID_SIZE,
+      h: GRID_SIZE,
+      r: 23,
+      g: 245,
+      b: 23,
+    }
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-orgf855b9c">
+<h4 id="orgf855b9c"><span class="section-number-4">8.2.2.</span> Rendering the Snake</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def render_snake args
+  args.outputs.solids &lt;&lt; args.state.head
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org3037239">
+<h4 id="org3037239"><span class="section-number-4">8.2.3.</span> Updating Render</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def render args
+  render_grid args
+  render_snake args
+end
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org2c4e4b6">
+<h2 id="org2c4e4b6"><span class="section-number-2">9.</span> Adding Movement</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+</section>
+<section id="slide-orgcf94813">
+<h3 id="orgcf94813"><span class="section-number-3">9.1.</span> Handling player input</h3>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def handle_input args
+  inputs = args.inputs
+  head = args.state.head
+  if inputs.left
+    head.direction = :left
+  elsif inputs.right
+    head.direction = :right
+  elsif inputs.up
+    head.direction = :up
+  elsif inputs.down
+    head.direction = :down
+  end
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org3a7e973">
+<h3 id="org3a7e973"><span class="section-number-3">9.2.</span> Updating Snake Position</h3>
+<div class="outline-text-3" id="text-9-2">
+</div>
+</section>
+<section id="slide-org2448060">
+<h4 id="org2448060"><span class="section-number-4">9.2.1.</span> Set the speed</h4>
+<pre  class="example" >
+SPEED = 10
+</pre>
+</section>
+<section id="slide-org5376a66">
+<h4 id="org5376a66"><span class="section-number-4">9.2.2.</span> Move the snake</h4>
+<aside class="notes">
+<p>
+After making this change if you no longer see the snake head on the screen.
+Let&rsquo;s drop down the in game terminal by hitting backtick or the tilda key
+Now let&rsquo;s type in $gtk.reset
+This will bring the game to its starting state and you should see the snake head sitting
+there waiting for directional input
+</p>
+
+</aside>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def move_snake args
+  head = args.state.head
+  vector = { x: 0, y: 0 }
+    case head.direction
+    when :right
+      vector.x = 1
+    when :left
+      vector.x = -1
+    when :down
+      vector.y = -1
+    when :up
+      vector.y = 1
+    end
+    head.x += GRID_SIZE * vector.x
+    head.y += GRID_SIZE * vector.y
+end
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org86e3008">
+<h4 id="org86e3008"><span class="section-number-4">9.2.3.</span> Let&rsquo;s Slow it down</h4>
+<p>
+#+begin<sub>src</sub> ruby
+SPEED = 10
+</p>
+
+<p>
+def update args
+  if args.tick<sub>count.mod</sub><sub>zero</sub>? SPEED
+    move<sub>snake</sub> args
+  end
+end
+</p>
+
+<p>
+#+end<sub>src</sub>`
+</p>
+
+</section>
+<section id="slide-orgfa716c0">
+<h4 id="orgfa716c0"><span class="section-number-4">9.2.4.</span> Update</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def update args
+  move_snake args
+end
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org2192c7f">
+<h2 id="org2192c7f"><span class="section-number-2">10.</span> Setting Boundaries</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+</section>
+<section id="slide-org15eebd9">
+<h3 id="org15eebd9"><span class="section-number-3">10.1.</span> Render walls</h3>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def render_boundaries args
+  walls = args.state.walls
+  args.outputs.solids &lt;&lt; [walls.top, walls.right, walls.bottom, walls.left]
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org95d1804">
+<h3 id="org95d1804"><span class="section-number-3">10.2.</span> Render walls</h3>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def render args
+  render_grid args
+  render_walls args
+  render_boundaries args
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org4882fa5">
+<h3 id="org4882fa5"><span class="section-number-3">10.3.</span> Initialize walls</h3>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def defaults args
+  # ... Previous code
+  args.state.walls.left ||= {x: args.grid.left, y: args.grid.bottom, h: args.grid.h, w: grid_size, r: 12, g: 33, b: 245 }
+  args.state.walls.right ||= {x: args.grid.right - grid_size, y: args.grid.bottom, h: args.grid.h, w: grid_size, r: 12, g: 33, b: 245 }
+  args.state.walls.top ||= {x: args.grid.left, y: args.grid.top - grid_size, h: grid_size, w: args.grid.w, r: 12, g: 33, b: 245 }
+  args.state.walls.bottom ||= {x: args.grid.left, y: args.grid.bottom, h: GRID_SIZE, w: args.grid.w, r: 12, g: 33, b: 245 }
+end
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orga037f12">
+<h2 id="orga037f12"><span class="section-number-2">11.</span> Get the walls to stop the snake</h2>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def handle_boundary_collision walls = args.state.walls
+  head = args.state.head
+  if [walls.left, walls.right, walls.top, walls.bottom].any_intersect_rect?  args.state.head
+    head.x = head.x.clamp(walls.left.right, walls.right.left - GRID_SIZE)
+    head.y = head.y.clamp(walls.bottom.top, walls.top.bottom - GRID_SIZE)
+  end
+end
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgded137a">
+<h2 id="orgded137a"><span class="section-number-2">12.</span> Scoring</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+</section>
+<section id="slide-org704bfb3">
+<h3 id="org704bfb3"><span class="section-number-3">12.1.</span> Generating a collectable</h3>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def spawn_collectable args
+  if args.state.collectable.nil?
+    x_rand = ((args.grid.w / GRID_SIZE) - 1).randomize(:ratio).ceil
+    y_rand = ((args.grid.h / GRID_SIZE) - 1).randomize(:ratio).ceil
+    args.state.collectable = {
+      x: x_rand * GRID_SIZE,
+      y: y_rand * GRID_SIZE,
+      h: GRID_SIZE,
+      w: GRID_SIZE,
+      r: 233,
+      g: 23,
+      b: 23
+    }
+  end
+end
+
+</code></pre>
+</div>
+</section>
+<section id="slide-org2f5c52a">
+<h3 id="org2f5c52a"><span class="section-number-3">12.2.</span> Collecting</h3>
+<div class="outline-text-3" id="text-12-2">
+</div>
+</section>
+<section id="slide-org52552a7">
+<h4 id="org52552a7"><span class="section-number-4">12.2.1.</span> Create collision function</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def handle_collectable_collision args
+  return if args.state.collectable.nil?
+  if args.state.collectable.intersect_rect? args.state.head
+    args.state.collectable = nil
+  end
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org3c2d28b">
+<h4 id="org3c2d28b"><span class="section-number-4">12.2.2.</span> Add Function to Update</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def update args
+  if args.tick_count.mod_zero? SPEED
+    move_snake args
+    handle_boundary_collision args
+    handle_collectable_collision args
+    spawn_collectable args
+  end
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org2bfbd05">
+<h3 id="org2bfbd05"><span class="section-number-3">12.3.</span> Rendering Score</h3>
+<div class="outline-text-3" id="text-12-3">
+</div>
+</section>
+<section id="slide-org9d35882">
+<h4 id="org9d35882"><span class="section-number-4">12.3.1.</span> Add initial score state to defaults</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def defaults args
+  args.state.head ||=
+  {
+    x: args.grid.w / 2,
+    y: args.grid.h / 2,
+    w: GRID_SIZE,
+    h: GRID_SIZE,
+    r: 23,
+    g: 245,
+    b: 23,
+  }
+  args.state.walls.left ||= {x: args.grid.left, y: args.grid.bottom, h: args.grid.h, w: GRID_SIZE, r: 12, g: 33, b: 245 }
+  args.state.walls.right ||= {x: args.grid.right - GRID_SIZE, y: args.grid.bottom, h: args.grid.h, w: GRID_SIZE, r: 12, g: 33, b: 245 }
+  args.state.walls.top ||= {x: args.grid.left, y: args.grid.top - GRID_SIZE, h: GRID_SIZE, w: args.grid.w, r: 12, g: 33, b: 245 }
+  args.state.walls.bottom ||= {x: args.grid.left, y: args.grid.bottom, h: GRID_SIZE, w: args.grid.w, r: 12, g: 33, b: 245 }
+  args.state.score ||= 0
+end
+
+</code></pre>
+</div>
+</section>
+<section id="slide-org51b1a47">
+<h4 id="org51b1a47"><span class="section-number-4">12.3.2.</span> Update collision function</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def handle_collectable_collision args
+  return if args.state.collectable.nil?
+  if args.state.collectable.intersect_rect? args.state.head
+    args.state.collectable = nil
+    args.state.score += 1
+  end
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-orga520eaf">
+<h4 id="orga520eaf"><span class="section-number-4">12.3.3.</span> Create a rendering function</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def render_score args
+  args.outputs.labels &lt;&lt; { x: args.grid.left.shift_right(2 * GRID_SIZE), y: args.grid.top.shift_down(2 * GRID_SIZE), text: "Score: #{args.state.score}"}
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org53aa0ce">
+<h4 id="org53aa0ce"><span class="section-number-4">12.3.4.</span> Update the main render function</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def render args
+  render_grid args
+  render_snake args
+  render_walls args
+  render_collectable args
+  render_score args
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org37b9ea8">
+<h3 id="org37b9ea8"><span class="section-number-3">12.4.</span> Adding Sound</h3>
+<div class="outline-text-3" id="text-12-4">
+</div>
+</section>
+<section id="slide-org5efa887">
+<h4 id="org5efa887"><span class="section-number-4">12.4.1.</span> Trigger a sound when collecting</h4>
+<ul>
+<li>Find a sound you like</li>
+<li>itch.io is a good resource</li>
+<li>Add sound to sounds folder located in mygame folder</li>
+
+</ul>
+</section>
+<section id="slide-orgbc92e30">
+<h4 id="orgbc92e30"><span class="section-number-4">12.4.2.</span> Update function to trigger sound</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def handle_collectable_collision args
+  return if args.state.collectable.nil?
+  if args.state.collectable.intersect_rect? args.state.head
+    args.state.collectable = nil
+    args.state.score += 1
+    args.outputs.sounds &lt;&lt; "sounds/collect.wav"
+  end
+end
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org32729a4">
+<h2 id="org32729a4"><span class="section-number-2">13.</span> Adding the Snake Body</h2>
+<div class="outline-text-2" id="text-13">
+</div>
+</section>
+<section id="slide-orgb031ba0">
+<h3 id="orgb031ba0"><span class="section-number-3">13.1.</span> Adding the snake body</h3>
+<div class="outline-text-3" id="text-13-1">
+</div>
+</section>
+<section id="slide-org65a8fc7">
+<h4 id="org65a8fc7"><span class="section-number-4">13.1.1.</span> Add initial state to defaults</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def defaults args
+  args.state.head ||=
+  {
+    x: args.grid.w / 2,
+    y: args.grid.h / 2,
+    w: GRID_SIZE,
+    h: GRID_SIZE,
+    r: 23,
+    g: 245,
+    b: 23,
+  }
+  args.state.walls.left ||= {x: args.grid.left, y: args.grid.bottom, h: args.grid.h, w: GRID_SIZE, r: 12, g: 33, b: 245 }
+  args.state.walls.right ||= {x: args.grid.right - GRID_SIZE, y: args.grid.bottom, h: args.grid.h, w: GRID_SIZE, r: 12, g: 33, b: 245 }
+  args.state.walls.top ||= {x: args.grid.left, y: args.grid.top - GRID_SIZE, h: GRID_SIZE, w: args.grid.w, r: 12, g: 33, b: 245 }
+  args.state.walls.bottom ||= {x: args.grid.left, y: args.grid.bottom, h: GRID_SIZE, w: args.grid.w, r: 12, g: 33, b: 245 }
+  args.state.score ||= 0
+  args.state.body ||= []
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org51ade24">
+<h4 id="org51ade24"><span class="section-number-4">13.1.2.</span> Increase the body size</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def grow_body args
+  segment = args.state.body.last.clone || args.state.head.clone
+  vector = { x: 0, y: 0 }
+  if segment.direction == :right
+    vector.x = -1
+  elsif segment.direction == :left
+    vector.x = 1
+  elsif segment.direction == :down
+    vector.y = 1
+  elsif segment.direction == :up
+    vector.y = -1
+  end
+
+  segment.x += (GRID_SIZE * vector.x)
+  segment.y += (GRID_SIZE * vector.y)
+  args.state.body &lt;&lt; segment
+end
+
+</code></pre>
+</div>
+</section>
+<section id="slide-orgdda06dc">
+<h4 id="orgdda06dc"><span class="section-number-4">13.1.3.</span> Update Collect Collision</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def handle_collectable_collision args
+  return if args.state.collectable.nil?
+  if args.state.collectable.intersect_rect? args.state.head
+    args.state.collectable = nil
+    args.state.score += 1
+    args.outputs.sounds &lt;&lt; "sounds/collect.wav"
+    grow_body args
+  end
+end
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org547ac8d">
+<h4 id="org547ac8d"><span class="section-number-4">13.1.4.</span> Render the body</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def render_player args
+  args.outputs.solids &lt;&lt; [@state.player, *@state.body]
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-orgb2c2755">
+<h3 id="orgb2c2755"><span class="section-number-3">13.2.</span> Refactoring Snake Movement</h3>
+<div class="outline-text-3" id="text-13-2">
+</div>
+</section>
+<section id="slide-orgae56c4f">
+<h4 id="orgae56c4f"><span class="section-number-4">13.2.1.</span> Update handle input</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def handle_input args
+  inputs = args.inputs
+  head = args.state.head
+  if args.tick_count.mod_zero? SPEED
+    head.previous_direction = head.direction
+    if inputs.left &amp;&amp; head.previous_direction != :right
+      head.direction = :left
+    elsif inputs.right &amp;&amp; head.previous_direction != :left
+      head.direction = :right
+    elsif inputs.up &amp;&amp; head.previous_direction != :down
+      head.direction = :up
+    elsif inputs.down &amp;&amp; head.previous_direction != :up
+      head.direction = :down
+    end
+  end
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org308b189">
+<h4 id="org308b189"><span class="section-number-4">13.2.2.</span> Update Snake Movement</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def move_snake args
+  snake = [args.state.head, *args.state.body]
+  snake.each_with_index do |segment, index|
+    segment.previous_direction = segment.direction unless index == 0
+    segment.direction = snake[index - 1].previous_direction unless index == 0
+    vector = { x: 0, y: 0 }
+    case segment.direction
+    when :right
+      vector.x = 1
+    when :left
+      vector.x = -1
+    when :down
+      vector.y = -1
+    when :up
+      vector.y = 1
+    end
+    segment.x += GRID_SIZE * vector.x
+    segment.y += GRID_SIZE * vector.y
+  end
+end
+</code></pre>
+</div>
+<p>
+<b>*</b>
+</p>
+</section>
+<section id="slide-orga6b13ca">
+<h3 id="orga6b13ca"><span class="section-number-3">13.3.</span> Colliding with self</h3>
+<div class="outline-text-3" id="text-13-3">
+</div>
+</section>
+<section id="slide-orga118162">
+<h4 id="orga118162"><span class="section-number-4">13.3.1.</span> Create function to handle body collision</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def handle_body_collision args
+  if args.state.body.any_intersect_rect? args.state.head
+    p "COLLIDED WITH BODY" #We'll change this later
+  end
+end
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org5cc5c06">
+<h4 id="org5cc5c06"><span class="section-number-4">13.3.2.</span> Add function to update</h4>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def update args
+  if args.tick_count.mod_zero? SPEED
+    move_snake args
+    handle_boundary_collision args
+    handle_collectable_collision args
+    handle_body_collision args
+    spawn_collectable args
+  end
+end
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orge1b4fbe">
+<h2 id="orge1b4fbe"><span class="section-number-2">14.</span> Adding Game Over</h2>
+<div class="outline-text-2" id="text-14">
+</div>
+</section>
+<section id="slide-org856e295">
+<h3 id="org856e295"><span class="section-number-3">14.1.</span> Adding Game State</h3>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def handle_body_collision args
+  if args.state.body.any_intersect_rect? args.state.head
+    # p "COLLIDED WITH BODY"
+    args.state.game_state = :game_over
+  end
+end
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def handle_boundary_collision args
+  walls = args.state.walls
+  head = args.state.head
+  if [walls.left, walls.right, walls.top, walls.bottom].any_intersect_rect?  args.state.head
+    # head.x = head.x.clamp(walls.left.right, walls.right.left - GRID_SIZE)
+    # head.y = head.y.clamp(walls.bottom.top, walls.top.bottom - GRID_SIZE)
+    args.state.game_state = :game_over
+  end
+end
+</code></pre>
+</div>
+</section>
+<section id="slide-org114af05">
+<h3 id="org114af05"><span class="section-number-3">14.2.</span> Creating the Game over screen</h3>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def render_game_over args
+  args.outputs.labels &lt;&lt; {x: args.grid.w / 2, y: (args.grid.h / 2).shift_up(16), text: "GAME OVER!", size_enum: 10, alignment_enum: 1 }
+  args.outputs.labels &lt;&lt; {x: args.grid.w / 2, y: (args.grid.h / 2).shift_down(24), text: "Final Score was #{args.state.score} points!", size_enum: 1, alignment_enum: 1 }
+  args.outputs.labels &lt;&lt; {x: args.grid.w / 2, y: (args.grid.h / 2).shift_down(48), text: "Press Escape to try again", size_enum: 0, alignment_enum: 1}
+end
+
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def render args
+  if args.state.game_state == :game_over
+    render_game_over args
+  else
+    render_grid args
+    render_snake args
+    render_walls args
+    render_collectable args
+    render_score args
+  end
+end
+
+</code></pre>
+</div>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def update args
+  return if args.state.game_state == :game_over
+  if args.tick_count.mod_zero? SPEED
+    move_snake args
+    handle_boundary_collision args
+    handle_collectable_collision args
+    handle_body_collision args
+    spawn_collectable args
+  end
+end
+
+</code></pre>
+</div>
+</section>
+<section id="slide-orgde845c0">
+<h3 id="orgde845c0"><span class="section-number-3">14.3.</span> Reset Game</h3>
+<div class="org-src-container">
+
+<pre   ><code class="ruby" >def handle_input args
+  inputs = args.inputs
+  if args.state.game_state == :game_over
+    if inputs.keyboard.key_down.escape
+      $gtk.reset_next_tick
+    end
+  else
+    head = args.state.head
+    if args.tick_count.mod_zero? SPEED
+      head.previous_direction = head.direction
+      if inputs.left &amp;&amp; head.previous_direction != :right
+        head.direction = :left
+      elsif inputs.right &amp;&amp; head.previous_direction != :left
+        head.direction = :right
+      elsif inputs.up &amp;&amp; head.previous_direction != :down
+        head.direction = :up
+      elsif inputs.down &amp;&amp; head.previous_direction != :up
+        head.direction = :down
+      end
+    end
+  end
+end
+</code></pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealHighlight, RevealNotes]
+});
+
+</script>
+</body>
+</html>
